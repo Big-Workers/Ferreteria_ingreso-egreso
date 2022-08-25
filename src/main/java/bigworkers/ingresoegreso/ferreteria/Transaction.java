@@ -3,7 +3,7 @@ package bigworkers.ingresoegreso.ferreteria;
 public class Transaction {
 
     private long id;
-    prvate string concept;
+    private string concept;
     private float amount;
     private User user;
     private Enterprise enterprise;
@@ -18,11 +18,11 @@ public class Transaction {
         this.id = id;
     }
 
-    public prvate getString() {
+    public private getString() {
         return string;
     }
 
-    public void setString(prvate string) {
+    public void setString(private string) {
         this.string = string;
     }
 
