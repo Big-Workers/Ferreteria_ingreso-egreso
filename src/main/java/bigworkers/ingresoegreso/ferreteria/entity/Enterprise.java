@@ -4,16 +4,14 @@ public class Enterprise {
 
     private long idEnterprise;
     private String name;
-    private String documentType;
     private String document;
     private String phone;
     private String address;
     private boolean status;
 
-    public Enterprise(long idEnterprise, String name, String documentType, String document, String phone, String address, boolean status) {
+    public Enterprise(long idEnterprise, String name, String document, String phone, String address, boolean status) {
         this.idEnterprise = idEnterprise;
         this.name = name;
-        this.documentType = documentType;
         this.document = document;
         this.phone = phone;
         this.address = address;
@@ -34,14 +32,6 @@ public class Enterprise {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDocumentType() {
-        return documentType;
-    }
-
-    public void setDocumentType(String documentType) {
-        this.documentType = documentType;
     }
 
     public String getDocument() {
@@ -81,7 +71,6 @@ public class Enterprise {
         return "Enterprise{" +
                 "idEnterprise=" + idEnterprise +
                 ", name='" + name + '\'' +
-                ", documentType=" + documentType +
                 ", document='" + document + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
