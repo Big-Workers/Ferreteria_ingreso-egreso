@@ -13,7 +13,7 @@ public class Employee {
     private String role;
     private boolean state;
 
-    public Employee(String idUser, String documentType, String documentNumber, String name, String surnames, String address, String phoneNumber; String emails, int age, String role, boolean state){
+    public Employee(String idUser, String documentType, String documentNumber, String name, String surnames, String address, String phoneNumber, String emails, int age, String role, boolean state){
         this.idUser = idUser;
         this.documentType = documentType;
         this.documentNumber = documentNumber;
@@ -69,6 +69,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", surnames='" + surnames + '\'' +
                 ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", emails='" + emails + '\'' +
                 ", age=" + age +
                 ", role='" + role + '\'' +
