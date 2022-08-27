@@ -1,4 +1,4 @@
-package bigworkers.ingresoegreso.ferreteria;
+package bigworkers.ingresoegreso.ferreteria.entity;
 
 public class Employee {
     private String idUser;
@@ -25,9 +25,6 @@ public class Employee {
         this.state = state;
     }
 
-    public Employee() {
-
-    }
     public String getIdUser() {return idUser;}
     public void setIdUser(String idUser) {this.idUser = idUser;}
 
@@ -58,4 +55,19 @@ public class Employee {
     public boolean getState() {return state;}
     public void setState(boolean State) {this.state = state;}
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "idUser='" + idUser + '\'' +
+                ", documentType='" + documentType + '\'' +
+                ", documentNumber='" + documentNumber + '\'' +
+                ", name='" + name + '\'' +
+                ", surnames='" + surnames + '\'' +
+                ", address='" + address + '\'' +
+                ", emails='" + emails + '\'' +
+                ", age=" + age +
+                ", role='" + role + '\'' +
+                ", state=" + state +
+                '}';
+    }
 }
