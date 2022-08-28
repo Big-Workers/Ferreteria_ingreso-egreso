@@ -58,12 +58,11 @@ public class Enterprise {
 
     @Override
     public String toString() {
-        return "Enterprise{" +
-                "idEnterprise=" + idEnterprise +
-                ", name='" + name + '\'' +
-                ", document='" + document + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+        return "Enterprise" +
+                "\n     idEnterprise = " + idEnterprise +
+                "\n     name = " + name +
+                "\n     document = " + document +
+                "\n     address = " + address +
+                "\n     phone = " + phone;
     }
 }

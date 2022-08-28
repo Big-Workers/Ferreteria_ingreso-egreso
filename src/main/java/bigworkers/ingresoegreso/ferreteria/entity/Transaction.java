@@ -2,18 +2,16 @@ package bigworkers.ingresoegreso.ferreteria.entity;
 
 public class Transaction {
 
-    public long idTransaction;
-    public String concept;
-    public float amount;
-    private user User:
-    private enterprise Enterprise;
+    private long idTransaction;
+    private String concept;
+    private float amount;
+    private String user;
 
-    public Transaction(long idTransaction, String concept, float amount, user user, enterprise enterprise) {
+    public Transaction(long idTransaction, String concept, float amount, String user) {
         this.idTransaction = idTransaction;
         this.concept = concept;
         this.amount = amount;
-        User = user;
-        Enterprise = enterprise;
+        this.user = user;
     }
 
     public long getIdTransaction() {
@@ -40,30 +38,16 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public user getUser() {
-        return User;
-    }
+    public String getUser() {return user; }
 
-    public void setUser(user user) {
-        User = user;
-    }
-
-    public enterprise getEnterprise() {
-        return Enterprise;
-    }
-
-    public void setEnterprise(enterprise enterprise) {
-        Enterprise = enterprise;
-    }
+    public void setUser(String usuario) {this.user = usuario; }
 
     @Override
     public String toString() {
-        return "Transaction{" +
-                "idTransaction=" + idTransaction +
-                ", concept='" + concept + '\'' +
-                ", amount=" + amount +
-                ", User=" + User +
-                ", Enterprise=" + Enterprise +
-                '}';
+        return "Transaction" +
+                "\n     idTransaction = " + idTransaction +
+                "\n     concept = " + concept +
+                "\n     amount = " + amount +
+                "\n     user = " + user;
     }
 }
