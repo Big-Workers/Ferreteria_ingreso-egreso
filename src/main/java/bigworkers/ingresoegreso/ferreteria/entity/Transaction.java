@@ -4,15 +4,11 @@ public class Transaction {
 
     private long idTransaction;
     private String concept;
+    private String detail;
     private float amount;
-    private String user;
-
-    public Transaction(long idTransaction, String concept, float amount, String user) {
-        this.idTransaction = idTransaction;
-        this.concept = concept;
-        this.amount = amount;
-        this.user = user;
-    }
+    private Employee employee;
+    private Enterprise enterprise;
+    private boolean state;
 
     public long getIdTransaction() {
         return idTransaction;
@@ -30,6 +26,14 @@ public class Transaction {
         this.concept = concept;
     }
 
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
     public float getAmount() {
         return amount;
     }
@@ -38,16 +42,40 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String getUser() {return user; }
+    public Employee getEmployee() {
+        return employee;
+    }
 
-    public void setUser(String usuario) {this.user = usuario; }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
+    }
+
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
 
     @Override
     public String toString() {
-        return "Transaction" +
-                "\n     idTransaction = " + idTransaction +
-                "\n     concept = " + concept +
-                "\n     amount = " + amount +
-                "\n     user = " + user;
+        return "Transaction{" +
+                "idTransaction=" + idTransaction +
+                ", concept='" + concept + '\'' +
+                ", detail='" + detail + '\'' +
+                ", amount=" + amount +
+                ", employee=" + employee +
+                ", enterprise=" + enterprise +
+                ", state=" + state +
+                '}';
     }
 }
