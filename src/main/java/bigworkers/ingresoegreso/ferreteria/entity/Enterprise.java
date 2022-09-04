@@ -4,17 +4,12 @@ public class Enterprise {
 
     private long idEnterprise;
     private String name;
-    private String document;
+    private String nit;
     private String address;
     private String phone;
-
-    public Enterprise(long idEnterprise, String name, String document, String address, String phone) {
-        this.idEnterprise = idEnterprise;
-        this.name = name;
-        this.document = document;
-        this.address = address;
-        this.phone = phone;
-    }
+    private Transaction transaction;
+    private Employee employee;
+    private boolean state;
 
     public long getIdEnterprise() {
         return idEnterprise;
@@ -32,12 +27,12 @@ public class Enterprise {
         this.name = name;
     }
 
-    public String getDocument() {
-        return document;
+    public String getNit() {
+        return nit;
     }
 
-    public void setDocument(String document) {
-        this.document = document;
+    public void setNit(String nit) {
+        this.nit = nit;
     }
 
     public String getAddress() {
@@ -56,13 +51,41 @@ public class Enterprise {
         this.phone = phone;
     }
 
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
-        return "Enterprise" +
-                "\n     idEnterprise = " + idEnterprise +
-                "\n     name = " + name +
-                "\n     document = " + document +
-                "\n     address = " + address +
-                "\n     phone = " + phone;
+        return "Enterprise{" +
+                "idEnterprise=" + idEnterprise +
+                ", name='" + name + '\'' +
+                ", nit='" + nit + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", transaction=" + transaction +
+                ", employee=" + employee +
+                ", state=" + state +
+                '}';
     }
 }
