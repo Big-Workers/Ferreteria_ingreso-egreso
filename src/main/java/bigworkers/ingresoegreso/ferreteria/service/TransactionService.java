@@ -3,7 +3,9 @@ package bigworkers.ingresoegreso.ferreteria.service;
 import bigworkers.ingresoegreso.ferreteria.entity.Employee;
 import bigworkers.ingresoegreso.ferreteria.entity.Enterprise;
 import bigworkers.ingresoegreso.ferreteria.entity.Transaction;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TransactionService implements ITransactionService{
 
 
