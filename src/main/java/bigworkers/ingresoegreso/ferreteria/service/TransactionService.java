@@ -1,5 +1,7 @@
 package bigworkers.ingresoegreso.ferreteria.service;
 
+import bigworkers.ingresoegreso.ferreteria.entity.Employee;
+import bigworkers.ingresoegreso.ferreteria.entity.Enterprise;
 import bigworkers.ingresoegreso.ferreteria.entity.Transaction;
 
 public class TransactionService implements ITransactionService{
@@ -7,15 +9,17 @@ public class TransactionService implements ITransactionService{
 
     @Override
     public Transaction findById(long id) {
+        Enterprise empresa = new Enterprise();
+        Employee empleado = new Employee();
         Transaction movimiento = new Transaction();
         movimiento.setIdTransaction(id);
         movimiento.setAmount(100000);
         movimiento.setConcept("gastos");
         movimiento.setDetail("compra de bombillos");
-        movimiento.setEnterprise(movimiento.getEnterprise());
-        movimiento.setEmployee(movimiento.getEmployee());
-        movimiento.setState(movimiento.isState());
-        return null;
+        movimiento.setEnterprise(empresa);
+        movimiento.setEmployee(empleado);
+        movimiento.setState(true);
+        return movimiento;
     }
 
     @Override
@@ -28,8 +32,7 @@ public class TransactionService implements ITransactionService{
         newMovimiento.setEnterprise(movimiento.getEnterprise());
         newMovimiento.setEmployee(movimiento.getEmployee());
         newMovimiento.setState(movimiento.isState());
-
-        return null;
+        return movimiento;
     }
 
     @Override
@@ -41,8 +44,7 @@ public class TransactionService implements ITransactionService{
         putTransaction.setEnterprise(movimiento.getEnterprise());
         putTransaction.setEmployee(movimiento.getEmployee());
         putTransaction.setState(movimiento.isState());
-
-        return null;
+        return putTransaction;
     }
 
     @Override

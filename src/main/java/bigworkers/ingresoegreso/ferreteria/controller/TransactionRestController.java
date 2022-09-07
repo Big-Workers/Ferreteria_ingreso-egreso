@@ -15,7 +15,6 @@ public class TransactionRestController {
     public ITransactionService TransactionService;
 
 
-
     @GetMapping("/transaction/{id}")
     public Transaction findById(@PathVariable long id){
         return TransactionService.findById(id);
@@ -34,7 +33,7 @@ public class TransactionRestController {
     }
     @DeleteMapping("/transaction/{id}")
     public void deleteTransaction(@PathVariable long id){
-        return TransactionService.deleteTransaction(long id);
+        TransactionService.deleteTransaction(id);
     }
 
 
