@@ -9,13 +9,13 @@ import java.util.List;
 
 public interface IProfileService {
 
-    public Profile fineById(@PathVariable long id);
+    public Profile findById(long id);
 
-    List<Profile> perfil = new ArrayList<Profile>();
+    public Profile findAll();
 
-    public Profile createProfile(@RequestBody Profile perfil);
+    public Profile createProfile(Profile perfil);
 
-    public Profile updateProfile(@PathVariable long id, @RequestBody Profile perfil);
+    public Profile updateProfile(long id,Profile perfil);
 
     public void deleteProfile(long id);
 }

@@ -29,26 +29,7 @@ public class TransactionRestController {
 
     @GetMapping("/transaction")
     public List<Transaction> findAll(){
-        List<Transaction> transacciones = new ArrayList<Transaction>();
-        Enterprise empresa = new Enterprise();
-        Employee empleado = new Employee();
-        Transaction movimiento = new Transaction();
-        movimiento.setIdTransaction(1);
-        movimiento.setAmount(100000);
-        movimiento.setConcept("gastos");
-        movimiento.setDetail("compra de bombillos");
-        movimiento.setEnterprise(empresa);
-        movimiento.setEmployee(empleado);
-        movimiento.setState(true);
-        Transaction movimiento2 = new Transaction();
-        movimiento2.setIdTransaction(2);
-        movimiento2.setAmount(200000);
-        movimiento2.setConcept("ventas");
-        movimiento2.setDetail("compra de bombillos");
-        movimiento2.setEnterprise(empresa);
-        movimiento2.setEmployee(empleado);
-        movimiento2.setState(true);
-        return transacciones;
+        return TransactionService.findAll();
 
     }
 
