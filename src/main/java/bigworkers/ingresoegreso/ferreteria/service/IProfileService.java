@@ -11,7 +11,7 @@ public interface IProfileService {
 
     public Profile findById(long id);
 
-    public Profile findAll();
+    public List<Profile> findAll();
 
     public Profile createProfile(Profile perfil);
 

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("/api")
 public class ProfileRestController {
 
     @Autowired
@@ -20,27 +20,24 @@ public class ProfileRestController {
     public Profile findById(@PathVariable long id){
         return ProfileService.findById(id);
     }
-    public Profile findAll(){
-       return ProfileService.findAll();
 
+    @GetMapping("/profile")
+    public List<Profile> findAll(){
+       return ProfileService.findAll();
     }
-    @PostMapping("/profile/")
+
+    @PostMapping("/profile")
     public Profile createProfile(@RequestBody Profile perfil){
         return ProfileService.createProfile(perfil);
-
-
     }
 
     @PutMapping("/profile/{id}")
     public Profile updateProfile(@PathVariable long id, @RequestBody Profile perfil){
         return ProfileService.updateProfile(id, perfil);
-
     }
 
     @DeleteMapping("/profile/{id}")
-    public void deleteProfile(long id){
+    public void deleteProfile(@PathVariable long id){
         ProfileService.deleteProfile(id);
-
-
     }
 }
