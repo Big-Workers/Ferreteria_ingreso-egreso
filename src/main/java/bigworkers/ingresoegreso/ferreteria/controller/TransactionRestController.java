@@ -38,7 +38,7 @@ public class TransactionRestController {
         return TransactionService.CreateTransaction(movimiento);
 
     }
-    @PutMapping("/transaction/{id}")
+    @PatchMapping("/transaction/{id}")
     public Transaction updateTransaction(@PathVariable long id, @RequestBody Transaction movimiento){
         return TransactionService.updateTransaction(id, movimiento);
 

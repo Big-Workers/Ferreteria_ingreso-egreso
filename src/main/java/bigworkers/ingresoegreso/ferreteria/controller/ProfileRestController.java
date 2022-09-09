@@ -31,7 +31,7 @@ public class ProfileRestController {
         return ProfileService.createProfile(perfil);
     }
 
-    @PutMapping("/profile/{id}")
+    @PatchMapping("/profile/{id}")
     public Profile updateProfile(@PathVariable long id, @RequestBody Profile perfil){
         return ProfileService.updateProfile(id, perfil);
     }
