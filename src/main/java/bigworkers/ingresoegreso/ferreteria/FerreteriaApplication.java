@@ -1,10 +1,10 @@
 package bigworkers.ingresoegreso.ferreteria;
 
-import bigworkers.ingresoegreso.ferreteria.entity.Employee;
 import bigworkers.ingresoegreso.ferreteria.entity.Enterprise;
-import bigworkers.ingresoegreso.ferreteria.entity.Transaction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.List;
 
 @SpringBootApplication
 public class FerreteriaApplication {
@@ -85,4 +85,13 @@ public class FerreteriaApplication {
 	}
 
 
+    public static interface IEnterpriseService {
+
+        public Enterprise findById(Long id);
+        public List<Enterprise> findAll();
+        public Enterprise createEnterprise(Enterprise empresa);
+        public Enterprise updateEnterprise(long id, Enterprise empresa);
+        public void deleteEnterprise(long id);
+
+        }
 }

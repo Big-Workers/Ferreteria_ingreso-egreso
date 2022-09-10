@@ -1,6 +1,6 @@
 package bigworkers.ingresoegreso.ferreteria.controller;
 
-import bigworkers.ingresoegreso.ferreteria.Services.IEnterpriseService;
+import bigworkers.ingresoegreso.ferreteria.FerreteriaApplication;
 import bigworkers.ingresoegreso.ferreteria.entity.Enterprise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class EnterpriseRestController {
     @Autowired
-    private IEnterpriseService EnterpriseService;
+    private FerreteriaApplication.IEnterpriseService EnterpriseService;
 
 
     @GetMapping("/enterprise/{id}")

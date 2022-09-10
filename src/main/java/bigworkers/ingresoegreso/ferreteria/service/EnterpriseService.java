@@ -1,5 +1,6 @@
-package bigworkers.ingresoegreso.ferreteria.Services;
+package bigworkers.ingresoegreso.ferreteria.service;
 
+import bigworkers.ingresoegreso.ferreteria.FerreteriaApplication;
 import bigworkers.ingresoegreso.ferreteria.entity.Employee;
 import bigworkers.ingresoegreso.ferreteria.entity.Enterprise;
 import bigworkers.ingresoegreso.ferreteria.entity.Transaction;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Service
 
-public class EnterpriseService implements IEnterpriseService {
+public class EnterpriseService implements FerreteriaApplication.IEnterpriseService {
     @Override
     public Enterprise findById(Long id) {
         Enterprise newEmpresa = new Enterprise();
