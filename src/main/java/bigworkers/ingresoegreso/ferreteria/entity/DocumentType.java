@@ -1,21 +1,11 @@
 package bigworkers.ingresoegreso.ferreteria.entity;
 
 public class DocumentType {
+
     private long idDocumentType;
-    private String Description;
-    private String Initials;
+    private String description;
+    private String initials;
     private boolean state;
-
-    public DocumentType(long idDocumentType, String description, String initials, boolean state) {
-        this.idDocumentType = idDocumentType;
-        Description = description;
-        Initials = initials;
-        this.state = state;
-    }
-
-    public DocumentType() {
-
-    }
 
     public long getIdDocumentType() {
         return idDocumentType;
@@ -26,19 +16,19 @@ public class DocumentType {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getInitials() {
-        return Initials;
+        return initials;
     }
 
     public void setInitials(String initials) {
-        Initials = initials;
+        this.initials = initials;
     }
 
     public boolean isState() {
@@ -47,5 +37,15 @@ public class DocumentType {
 
     public void setState(boolean state) {
         this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return "DocumentType{" +
+                "idDocumentType=" + idDocumentType +
+                ", description='" + description + '\'' +
+                ", initials='" + initials + '\'' +
+                ", state=" + state +
+                '}';
     }
 }

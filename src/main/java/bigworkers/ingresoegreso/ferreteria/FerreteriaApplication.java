@@ -10,7 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FerreteriaApplication {
 
 	public static void main(String[] args) {SpringApplication.run(FerreteriaApplication.class, args);}{
-/*
+
+		/*
 		//PRUEBA PARA CREAR UNA INSTANCIA DE LA CLASE ENTERPRISE////////////////////////////////////////////////////////
 
 		//CREAR EMPRESA USANDO EL CONSTRUCTOR DE LA CLASE
@@ -37,7 +38,7 @@ public class FerreteriaApplication {
 		//PRUEBA PARA CREAR UNA INSTANCIA DE LA CLASE EMPLOYEE//////////////////////////////////////////////////////////
 
 		//CREAR EMPLEADO USANDO EL CONSTRUCTOR DE LA CLASE
-		Employee empleado = new Employee("1","CC",
+		Employee empleado = new Employee(1,"CC",
 				"12999999","Carlos","Rueda","Calle 2 # 3-15",
 				"3124561211","carlos@gmail.com",25,"Operativo","Ferreteria la tuerca",true);
 
@@ -80,7 +81,8 @@ public class FerreteriaApplication {
 				"Concepto: "+movimiento.getConcept()+"\n"+
 				"Usuario: "+movimiento.getUser()+"\n");
 
-*/
+		*/
 	}
+
 
 }

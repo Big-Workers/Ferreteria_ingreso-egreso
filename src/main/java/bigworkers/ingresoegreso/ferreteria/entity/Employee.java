@@ -1,38 +1,21 @@
 package bigworkers.ingresoegreso.ferreteria.entity;
 
-public class Employee {
-    private long idEmployee;
-    private String email;
 
-    private String profile;
-    private String documentType;
+public class Employee {
+
+    private long idEmployee;
+    private DocumentType documentType;
     private String documentNumber;
     private String name;
     private String surnames;
     private String address;
-    private String role;
-
-    private String transaction;
-    private String enterprise;
+    private String email;
+    private String phone;
+    private Profile profile;
+    private Role role;
+    private Enterprise enterprise;
+    private Transaction transaction;
     private boolean state;
-
-    public Employee() {
-    }
-
-    public Employee(long idEmployee, String documentType, String documentNumber, String name, String surnames, String address, String email, String profile, String role, String transaction, String enterprise, boolean state) {
-        this.idEmployee = idEmployee;
-        this.documentType = documentType;
-        this.documentNumber = documentNumber;
-        this.name = name;
-        this.surnames = surnames;
-        this.address = address;
-        this.email = email;
-        this.profile = profile;
-        this.role = role;
-        this.transaction = transaction;
-        this.enterprise = enterprise;
-        this.state = state;
-    }
 
     public long getIdEmployee() {
         return idEmployee;
@@ -42,11 +25,11 @@ public class Employee {
         this.idEmployee = idEmployee;
     }
 
-    public String getDocumentType() {
+    public DocumentType getDocumentType() {
         return documentType;
     }
 
-    public void setDocumentType(String documentType) {
+    public void setDocumentType(DocumentType documentType) {
         this.documentType = documentType;
     }
 
@@ -90,32 +73,44 @@ public class Employee {
         this.email = email;
     }
 
-    public String getProfile() {
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Profile getProfile() {
         return profile;
     }
 
-    public void setProfile(String profile) {
+    public void setProfile(Profile profile) {
         this.profile = profile;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
-    public String getTransaction() {return transaction; }
-
-    public void setTransaction(String transaction) {this.transaction = transaction; }
-
-    public String getEnterprise() {
+    public Enterprise getEnterprise() {
         return enterprise;
     }
 
-    public void setEnterprise(String enterprise) {
+    public void setEnterprise(Enterprise enterprise) {
         this.enterprise = enterprise;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
     }
 
     public boolean isState() {
@@ -126,5 +121,22 @@ public class Employee {
         this.state = state;
     }
 
-
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "idEmployee=" + idEmployee +
+                ", documentType=" + documentType +
+                ", documentNumber='" + documentNumber + '\'' +
+                ", name='" + name + '\'' +
+                ", surnames='" + surnames + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", profile=" + profile +
+                ", role=" + role +
+                ", enterprise=" + enterprise +
+                ", transaction=" + transaction +
+                ", state=" + state +
+                '}';
+    }
 }
