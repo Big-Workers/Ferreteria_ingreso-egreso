@@ -11,7 +11,7 @@ public interface IEmployeeService {
 
      List<Employee> findAll();
 
-     Employee CreateEmployee( Employee employee);
+     Employee createEmployee( Employee employee);
 
      Employee updateEmployee( long idEmployee, Employee employee);
 

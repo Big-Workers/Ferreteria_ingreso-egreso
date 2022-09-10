@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Api")
+@RequestMapping("/api")
 public class EmployeeRestController {
 
     @Autowired
@@ -15,28 +15,28 @@ public class EmployeeRestController {
 
 
     @GetMapping("/employee/{idUser}")
-    public Employee findById(@PathVariable long idEmployee){
-        return EmployeeService.findById(idEmployee) ;
+    public Employee findById(@PathVariable long idUser){
+        return EmployeeService.findById(idUser) ;
     }
 
-    @GetMapping("/employee/")
+    @GetMapping("/employee")
     public List<Employee> findAll(){
         return EmployeeService.findAll();
     }
 
     @PostMapping("/employee")
-    public Employee CreateEmployee(@RequestBody Employee employee){
-        return employee;
+    public Employee createEmployee(@RequestBody Employee employee){
+        return EmployeeService.createEmployee(employee);
     }
 
-    @PutMapping("/documentType/{iDocumentType}")
-    public Employee updateEmployee(@PathVariable long idEmployee, @RequestBody Employee employee){
-        return employee;
+    @PutMapping("/employee/{idUser}")
+    public Employee updateEmployee(@PathVariable long idUser, @RequestBody Employee employee){
+        return EmployeeService.updateEmployee(idUser, employee);
     }
 
-    @DeleteMapping("/documentType/{idDocumentType}")
-    public void deleteRole(@PathVariable long idDocumentType){
-        Employee deleteEmployee = findById(1);
+    @DeleteMapping("/employee/{idUser}")
+    public void deleteEmployee(@PathVariable long idUser){
+        EmployeeService.deleteEmployee(idUser);
     }
 
 
