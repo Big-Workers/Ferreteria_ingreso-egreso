@@ -1,7 +1,6 @@
 package bigworkers.ingresoegreso.ferreteria.service;
 
 import bigworkers.ingresoegreso.ferreteria.entities.Profile;
-
 import java.util.List;
 
 public interface IProfileService {

@@ -12,30 +12,30 @@ import java.util.List;
 public class DocumentTypeRestController {
 
     @Autowired
-    private IDocumentTypeService DocumentTypeService;
+    private IDocumentTypeService documentTypeService;
 
     @GetMapping("/documentType/{id}")
     public DocumentType findById(@PathVariable long id){
-        return DocumentTypeService.findById(id);
+        return documentTypeService.findById(id);
     }
 
     @GetMapping("/documentType")
     public List<DocumentType> findAll(){
-        return DocumentTypeService.findAll();
+        return documentTypeService.findAll();
     }
 
     @PostMapping("/documentType")
     public DocumentType createDocumentType(@RequestBody DocumentType tipoDocumento){
-        return DocumentTypeService.createDocumentType(tipoDocumento);
+        return documentTypeService.createDocumentType(tipoDocumento);
     }
 
     @PatchMapping("/documentType/{id}")
     public DocumentType updateDocumentType(@PathVariable long id, @RequestBody DocumentType tipoDocumento){
-        return DocumentTypeService.updateDocumentType(id,tipoDocumento);
+        return documentTypeService.updateDocumentType(id,tipoDocumento);
     }
 
     @DeleteMapping("/documentType/{id}")
     public void deleteDocumentType(@PathVariable long id){
-        DocumentTypeService.deleteDocumentType(id);
+        documentTypeService.deleteDocumentType(id);
     }
 }

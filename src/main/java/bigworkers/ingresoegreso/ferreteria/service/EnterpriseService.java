@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 
-public class EnterpriseService implements FerreteriaApplication.IEnterpriseService {
+public class EnterpriseService implements IEnterpriseService {
     @Autowired
     private IEnterpriseRepository enterpriseRepository;
     @Override

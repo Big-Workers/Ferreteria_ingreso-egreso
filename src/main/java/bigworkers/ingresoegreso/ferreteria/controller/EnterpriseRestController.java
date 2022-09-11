@@ -2,6 +2,7 @@ package bigworkers.ingresoegreso.ferreteria.controller;
 
 import bigworkers.ingresoegreso.ferreteria.FerreteriaApplication;
 import bigworkers.ingresoegreso.ferreteria.entities.Enterprise;
+import bigworkers.ingresoegreso.ferreteria.service.IEnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,32 +12,30 @@ import java.util.List;
 @RequestMapping("/api")
 public class EnterpriseRestController {
     @Autowired
-    private FerreteriaApplication.IEnterpriseService EnterpriseService;
-
-
+    private IEnterpriseService enterpriseService;
     @GetMapping("/enterprise/{id}")
     public Enterprise findById(@PathVariable Long id){
-        return EnterpriseService.findById(id);
+        return enterpriseService.findById(id);
     }
 
     @GetMapping("/enterprise")
     public List<Enterprise> findAll(){
-        return EnterpriseService.findAll();
+        return enterpriseService.findAll();
     }
 
     @PostMapping("/enterprise")
     public Enterprise createEnterprise(@RequestBody Enterprise empresa){
-        return EnterpriseService.createEnterprise(empresa);
+        return enterpriseService.createEnterprise(empresa);
     }
 
     @PutMapping("/enterprise/{id}")
     public Enterprise updateEnterprise(@PathVariable long id,@RequestBody Enterprise empresa){
-        return EnterpriseService.updateEnterprise(id, empresa);
+        return enterpriseService.updateEnterprise(id, empresa);
     }
 
     @DeleteMapping("/enterprise/{id}")
      public void deleteEnterprise(@PathVariable long id){
-        EnterpriseService.deleteEnterprise(id);
+        enterpriseService.deleteEnterprise(id);
 
      }
 }

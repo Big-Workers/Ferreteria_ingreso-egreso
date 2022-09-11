@@ -5,6 +5,7 @@ import bigworkers.ingresoegreso.ferreteria.repository.IDocumentTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ public class DocumentTypeService implements IDocumentTypeService{
 
     @Autowired
     private IDocumentTypeRepository documentTypeRepository;
+
     @Override
     public DocumentType findById(long id) {
         Optional<DocumentType> tipoDocumento = documentTypeRepository.findById(id);
