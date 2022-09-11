@@ -1,10 +1,19 @@
-package bigworkers.ingresoegreso.ferreteria.entity;
+package bigworkers.ingresoegreso.ferreteria.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="documents_types")
 public class DocumentType {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_document_type")
     private long idDocumentType;
+    @Column(name="description", nullable = false)
     private String description;
+    @Column(name="initials",nullable = false)
     private String initials;
+    @Column(name="state")
     private boolean state;
 
     public long getIdDocumentType() {

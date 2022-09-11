@@ -1,15 +1,11 @@
 package bigworkers.ingresoegreso.ferreteria.controller;
 
 
-import bigworkers.ingresoegreso.ferreteria.entity.Employee;
-import bigworkers.ingresoegreso.ferreteria.entity.Enterprise;
-import bigworkers.ingresoegreso.ferreteria.entity.Transaction;
+import bigworkers.ingresoegreso.ferreteria.entities.Transaction;
 import bigworkers.ingresoegreso.ferreteria.service.ITransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 

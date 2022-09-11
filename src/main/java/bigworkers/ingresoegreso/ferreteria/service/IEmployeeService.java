@@ -1,6 +1,6 @@
 package bigworkers.ingresoegreso.ferreteria.service;
 
-import bigworkers.ingresoegreso.ferreteria.entity.Employee;
+import bigworkers.ingresoegreso.ferreteria.entities.Employee;
 
 
 import java.util.List;

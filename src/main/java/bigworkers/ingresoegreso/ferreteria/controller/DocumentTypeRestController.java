@@ -1,12 +1,10 @@
 package bigworkers.ingresoegreso.ferreteria.controller;
 
-import bigworkers.ingresoegreso.ferreteria.entity.DocumentType;
-import bigworkers.ingresoegreso.ferreteria.service.DocumentTypeService;
+import bigworkers.ingresoegreso.ferreteria.entities.DocumentType;
 import bigworkers.ingresoegreso.ferreteria.service.IDocumentTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

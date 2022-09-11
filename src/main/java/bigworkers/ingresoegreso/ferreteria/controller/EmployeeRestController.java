@@ -1,6 +1,7 @@
 package bigworkers.ingresoegreso.ferreteria.controller;
 
-import bigworkers.ingresoegreso.ferreteria.entity.Employee;
+//import bigworkers.ingresoegreso.ferreteria.entity.Employee;
+import bigworkers.ingresoegreso.ferreteria.entities.Employee;
 import bigworkers.ingresoegreso.ferreteria.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

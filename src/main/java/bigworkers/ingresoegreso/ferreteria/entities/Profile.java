@@ -1,13 +1,21 @@
-package bigworkers.ingresoegreso.ferreteria.entity;
+package bigworkers.ingresoegreso.ferreteria.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="profiles")
 public class Profile {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_profile")
     private long idProfile;
-
+    @Column(name="name", nullable = false)
     private String name;
-
+    @Column(name="password", nullable = false)
     private String password;
+    @Column(name="image", nullable = false)
     private String image;
+    @Column(name="state")
     private boolean state;
 
     public long getIdProfile() {

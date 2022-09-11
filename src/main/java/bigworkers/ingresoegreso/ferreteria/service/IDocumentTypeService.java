@@ -1,6 +1,6 @@
 package bigworkers.ingresoegreso.ferreteria.service;
 
-import bigworkers.ingresoegreso.ferreteria.entity.DocumentType;
+import bigworkers.ingresoegreso.ferreteria.entities.DocumentType;
 import java.util.List;
 
 public interface IDocumentTypeService {

@@ -1,10 +1,7 @@
 package bigworkers.ingresoegreso.ferreteria.service;
 
-import bigworkers.ingresoegreso.ferreteria.entity.Profile;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+import bigworkers.ingresoegreso.ferreteria.entities.Profile;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface IProfileService {

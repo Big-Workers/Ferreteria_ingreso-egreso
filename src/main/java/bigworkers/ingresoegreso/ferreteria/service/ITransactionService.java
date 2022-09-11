@@ -1,8 +1,6 @@
 package bigworkers.ingresoegreso.ferreteria.service;
 
-import bigworkers.ingresoegreso.ferreteria.entity.Transaction;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+import bigworkers.ingresoegreso.ferreteria.entities.Transaction;
 
 import java.util.List;
 

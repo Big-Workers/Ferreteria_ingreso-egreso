@@ -1,14 +1,29 @@
-package bigworkers.ingresoegreso.ferreteria.entity;
+package bigworkers.ingresoegreso.ferreteria.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="enterprises")
 public class Enterprise {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_enterprise")
     private long idEnterprise;
+    @Column(name="name", nullable = false)
     private String name;
+    @Column(name="nit", nullable = false)
     private String nit;
+    @Column(name="address", nullable = false)
     private String address;
+    @Column(name="phone", nullable = false)
     private String phone;
+    @OneToMany
+    @JoinColumn(name="id_transaction",nullable = false)
     private Transaction transaction;
+    @OneToMany
+    @JoinColumn(name="id_employee",nullable = false)
     private Employee employee;
+    @Column(name="state")
     private boolean state;
 
     public long getIdEnterprise() {

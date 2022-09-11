@@ -1,15 +1,11 @@
 package bigworkers.ingresoegreso.ferreteria.service;
 
-import bigworkers.ingresoegreso.ferreteria.entity.Employee;
-import bigworkers.ingresoegreso.ferreteria.entity.Enterprise;
-import bigworkers.ingresoegreso.ferreteria.entity.Transaction;
+import bigworkers.ingresoegreso.ferreteria.entities.Transaction;
 import bigworkers.ingresoegreso.ferreteria.repository.ITransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,34 +13,34 @@ import java.util.Optional;
 public class TransactionService implements ITransactionService{
 
     @Autowired
-    private ITransactionRepository TransactionRepository;
+    private ITransactionRepository transactionRepository;
 
     @Override
     public Transaction findById(long id) {
-        Optional<Transaction> movimiento = TransactionRepository.findById(id);
+        Optional<Transaction> movimiento = transactionRepository.findById(id);
         return movimiento.get();
     }
 
     @Override
     public List<Transaction> findAll() {
-        List<Transaction> movimientos = (List<Transaction>) TransactionRepository.findAll();
+        List<Transaction> movimientos = (List<Transaction>) transactionRepository.findAll();
         return movimientos;
     }
 
     @Override
     public Transaction CreateTransaction(Transaction movimiento) {
-        Transaction newMovimiento = TransactionRepository.save(movimiento);
+        Transaction newMovimiento = transactionRepository.save(movimiento);
         return newMovimiento;
     }
 
     @Override
     public Transaction updateTransaction(long id, Transaction movimiento) {
-        Transaction putMovimiento = TransactionRepository.save(movimiento);
+        Transaction putMovimiento = transactionRepository.save(movimiento);
         return putMovimiento;
     }
 
     @Override
     public void deleteTransaction(long id) {
-        TransactionRepository.deleteById(id);
+        transactionRepository.deleteById(id);
     }
 }
