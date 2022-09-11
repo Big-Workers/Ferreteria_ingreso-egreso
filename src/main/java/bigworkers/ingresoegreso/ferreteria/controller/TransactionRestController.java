@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/enterprise")
 
 public class TransactionRestController {
 
@@ -18,7 +18,7 @@ public class TransactionRestController {
     public ITransactionService TransactionService;
 
 
-    @GetMapping("/transaction/{id}")
+    @GetMapping("/{id}/transaction")
     public Transaction findById(@PathVariable int id){
         return TransactionService.findById(id);
     }
@@ -34,12 +34,12 @@ public class TransactionRestController {
         return TransactionService.CreateTransaction(movimiento);
 
     }
-    @PatchMapping("/transaction/{id}")
+    @PutMapping("/{id}/transaction")
     public Transaction updateTransaction(@PathVariable int id, @RequestBody Transaction movimiento){
         return TransactionService.updateTransaction(id, movimiento);
 
     }
-    @DeleteMapping("/transaction/{id}")
+    @DeleteMapping("/{id}/transaction")
     public void deleteTransaction(@PathVariable int id){
         TransactionService.deleteTransaction(id);
     }

@@ -32,9 +32,6 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name="id_enterprise",nullable = false)
     private Enterprise enterprise;
-    @ManyToOne
-    @JoinColumn(name="id_transaction",nullable = false)
-    private Transaction transaction;
     @Column(name="state", nullable = false)
     private boolean state;
 
@@ -126,14 +123,6 @@ public class Employee {
         this.enterprise = enterprise;
     }
 
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-    }
-
     public boolean isState() {
         return state;
     }
@@ -156,7 +145,6 @@ public class Employee {
                 ", profile=" + profile +
                 ", role=" + role +
                 ", enterprise=" + enterprise +
-                ", transaction=" + transaction +
                 ", state=" + state +
                 '}';
     }

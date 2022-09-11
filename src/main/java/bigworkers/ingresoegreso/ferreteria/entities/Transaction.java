@@ -17,6 +17,9 @@ public class Transaction {
     private float amount;
     @Column(name="state", nullable = false)
     private boolean state;
+    @OneToOne
+    @JoinColumn(name="id_employee")
+    private Employee employee;
 
     public long getIdTransaction() {
         return idTransaction;
@@ -58,6 +61,14 @@ public class Transaction {
         this.state = state;
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
     @Override
     public String toString() {
         return "Transaction{" +
@@ -66,6 +77,7 @@ public class Transaction {
                 ", detail='" + detail + '\'' +
                 ", amount=" + amount +
                 ", state=" + state +
+                ", employee=" + employee +
                 '}';
     }
 }
