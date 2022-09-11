@@ -1,70 +1,47 @@
 package bigworkers.ingresoegreso.ferreteria.service;
 
 
+import bigworkers.ingresoegreso.ferreteria.entity.Enterprise;
 import bigworkers.ingresoegreso.ferreteria.entity.Profile;
+import bigworkers.ingresoegreso.ferreteria.repository.IProfileRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ProfileService implements IProfileService{
 
-
+    @Autowired
+    private IProfileRepository ProfileRepository;
     @Override
     public Profile findById(long id) {
-        Profile Perfiles = new Profile();
-        Perfiles.setIdProfile(1);
-        Perfiles.setName("ANDRES CAMILO");
-        Perfiles.setPassword("124356");
-        Perfiles.setImage("imagen");
-        Perfiles.setState(true);
-        return Perfiles;
+        Optional<Profile> perfil = ProfileRepository.findById(id);
+        return perfil.get();
     }
 
     @Override
     public List<Profile> findAll() {
-        List<Profile> perfil = new ArrayList<>();
-        Profile perfil1 = new Profile();
-        perfil1.setIdProfile(1);
-        perfil1.setName("andres");
-        perfil1.setPassword("3452");
-        perfil1.setImage("foto2");
-        perfil1.setState(true);
-        perfil.add(perfil1);
-        Profile perfil2 = new Profile();
-        perfil2.setIdProfile(2);
-        perfil2.setName("Carlos");
-        perfil2.setPassword("1234");
-        perfil2.setImage("foto3");
-        perfil2.setState(true);
-        perfil.add(perfil2);
-        return perfil;
+        List<Profile> perfiles = (List<Profile>) ProfileRepository.findAll();
+        return perfiles;
     }
 
     @Override
     public Profile createProfile(Profile perfil) {
-        Profile newPerfil = new Profile();
-        newPerfil.setIdProfile(perfil.getIdProfile());
-        newPerfil.setName(perfil.getName());
-        newPerfil.setPassword(perfil.getPassword());
-        newPerfil.setImage(perfil.getImage());
-        newPerfil.setState(perfil.isState());
+        Profile newPerfil = ProfileRepository.save(perfil);
         return newPerfil;
     }
 
     @Override
     public Profile updateProfile(long id, Profile perfil) {
-        Profile putProfile = findById(id);
-        putProfile.setIdProfile(perfil.getIdProfile());
-        putProfile.setName(perfil.getName());
-        putProfile.setPassword(perfil.getPassword());
-        putProfile.setImage(perfil.getImage());
-        putProfile.setState(perfil.isState());
-        return putProfile;
+        Profile putPerfil = ProfileRepository.save(perfil);
+        return putPerfil;
     }
 
     @Override
     public void deleteProfile(long id) {
-        Profile deleteProfile = findById(id);
+        ProfileRepository.deleteById(id);
     }
 }
