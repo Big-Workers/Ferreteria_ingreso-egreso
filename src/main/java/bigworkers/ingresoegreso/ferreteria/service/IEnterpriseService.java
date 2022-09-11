@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface IEnterpriseService {
 
-    public Enterprise findById(Long id);
+    public Enterprise findById(int id);
 
     public List<Enterprise> findAll();
 
     public Enterprise createEnterprise(Enterprise empresa);
 
-    public Enterprise updateEnterprise(long id, Enterprise empresa);
+    public Enterprise updateEnterprise(int id, Enterprise empresa);
 
-    public void deleteEnterprise(long id);
+    public void deleteEnterprise(int id);
 }

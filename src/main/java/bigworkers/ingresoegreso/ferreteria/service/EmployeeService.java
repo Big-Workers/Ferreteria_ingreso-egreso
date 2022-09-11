@@ -14,8 +14,8 @@ public class EmployeeService implements IEmployeeService{
     @Autowired
     private IEmployeeRepository employeeRepository;
     @Override
-    public Employee findById(long id) {
-        Optional<Employee> empleado = employeeRepository.findById(id);
+    public Employee findById(int id) {
+        Optional<Employee> empleado = employeeRepository.findById((long)id);
         return empleado.get();
     }
 
@@ -32,14 +32,14 @@ public class EmployeeService implements IEmployeeService{
     }
 
     @Override
-    public Employee updateEmployee(long id, Employee employee) {
+    public Employee updateEmployee(int id, Employee employee) {
         Employee putEmployee = employeeRepository.save(employee);
         return putEmployee;
     }
 
     @Override
-    public void deleteEmployee(long id) {
-        employeeRepository.deleteById(id);
+    public void deleteEmployee(int id) {
+        employeeRepository.deleteById((long)id);
     }
 
 }

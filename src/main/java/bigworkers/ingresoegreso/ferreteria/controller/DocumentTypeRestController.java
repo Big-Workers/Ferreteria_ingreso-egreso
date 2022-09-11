@@ -15,7 +15,7 @@ public class DocumentTypeRestController {
     private IDocumentTypeService documentTypeService;
 
     @GetMapping("/documentType/{id}")
-    public DocumentType findById(@PathVariable long id){
+    public DocumentType findById(@PathVariable int id){
         return documentTypeService.findById(id);
     }
 
@@ -30,12 +30,12 @@ public class DocumentTypeRestController {
     }
 
     @PatchMapping("/documentType/{id}")
-    public DocumentType updateDocumentType(@PathVariable long id, @RequestBody DocumentType tipoDocumento){
+    public DocumentType updateDocumentType(@PathVariable int id, @RequestBody DocumentType tipoDocumento){
         return documentTypeService.updateDocumentType(id,tipoDocumento);
     }
 
     @DeleteMapping("/documentType/{id}")
-    public void deleteDocumentType(@PathVariable long id){
+    public void deleteDocumentType(@PathVariable int id){
         documentTypeService.deleteDocumentType(id);
     }
 }

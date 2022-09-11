@@ -15,7 +15,7 @@ public class ProfileRestController {
     public IProfileService ProfileService;
 
     @GetMapping("/profile/{id}")
-    public Profile findById(@PathVariable long id){
+    public Profile findById(@PathVariable int id){
         return ProfileService.findById(id);
     }
 
@@ -30,12 +30,12 @@ public class ProfileRestController {
     }
 
     @PatchMapping("/profile/{id}")
-    public Profile updateProfile(@PathVariable long id, @RequestBody Profile perfil){
+    public Profile updateProfile(@PathVariable int id, @RequestBody Profile perfil){
         return ProfileService.updateProfile(id, perfil);
     }
 
     @DeleteMapping("/profile/{id}")
-    public void deleteProfile(@PathVariable long id){
+    public void deleteProfile(@PathVariable int id){
         ProfileService.deleteProfile(id);
     }
 }

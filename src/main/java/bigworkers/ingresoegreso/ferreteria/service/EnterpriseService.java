@@ -15,8 +15,8 @@ public class EnterpriseService implements IEnterpriseService {
     @Autowired
     private IEnterpriseRepository enterpriseRepository;
     @Override
-    public Enterprise findById(Long id) {
-        Optional<Enterprise> empresa = enterpriseRepository.findById(id);
+    public Enterprise findById(int id) {
+        Optional<Enterprise> empresa = enterpriseRepository.findById((long)id);
         return empresa.get();
     }
 
@@ -33,13 +33,13 @@ public class EnterpriseService implements IEnterpriseService {
     }
 
     @Override
-    public Enterprise updateEnterprise(long id, Enterprise empresa) {
+    public Enterprise updateEnterprise(int id, Enterprise empresa) {
         Enterprise putEmpresa = enterpriseRepository.save(empresa);
         return putEmpresa;
     }
 
     @Override
-    public void deleteEnterprise(long id) {
-        enterpriseRepository.deleteById(id);
+    public void deleteEnterprise(int id) {
+        enterpriseRepository.deleteById((long)id);
     }
 }

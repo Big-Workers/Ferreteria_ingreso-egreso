@@ -15,12 +15,6 @@ public class Transaction {
     private String detail;
     @Column(name="amount", nullable = false)
     private float amount;
-    //@ManyToOne
-    //@JoinColumn(name="id_employee", nullable = false)
-    private Employee employee;
-    //@ManyToOne
-    //@JoinColumn(name="id_enterprise", nullable = false)
-    private Enterprise enterprise;
     @Column(name="state", nullable = false)
     private boolean state;
 
@@ -56,22 +50,6 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public Enterprise getEnterprise() {
-        return enterprise;
-    }
-
-    public void setEnterprise(Enterprise enterprise) {
-        this.enterprise = enterprise;
-    }
-
     public boolean isState() {
         return state;
     }
@@ -87,8 +65,6 @@ public class Transaction {
                 ", concept='" + concept + '\'' +
                 ", detail='" + detail + '\'' +
                 ", amount=" + amount +
-                ", employee=" + employee +
-                ", enterprise=" + enterprise +
                 ", state=" + state +
                 '}';
     }

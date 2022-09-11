@@ -19,7 +19,7 @@ public class TransactionRestController {
 
 
     @GetMapping("/transaction/{id}")
-    public Transaction findById(@PathVariable long id){
+    public Transaction findById(@PathVariable int id){
         return TransactionService.findById(id);
     }
 
@@ -35,12 +35,12 @@ public class TransactionRestController {
 
     }
     @PatchMapping("/transaction/{id}")
-    public Transaction updateTransaction(@PathVariable long id, @RequestBody Transaction movimiento){
+    public Transaction updateTransaction(@PathVariable int id, @RequestBody Transaction movimiento){
         return TransactionService.updateTransaction(id, movimiento);
 
     }
     @DeleteMapping("/transaction/{id}")
-    public void deleteTransaction(@PathVariable long id){
+    public void deleteTransaction(@PathVariable int id){
         TransactionService.deleteTransaction(id);
     }
 

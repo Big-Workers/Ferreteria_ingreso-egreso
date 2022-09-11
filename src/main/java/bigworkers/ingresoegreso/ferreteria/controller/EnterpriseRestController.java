@@ -14,7 +14,7 @@ public class EnterpriseRestController {
     @Autowired
     private IEnterpriseService enterpriseService;
     @GetMapping("/enterprise/{id}")
-    public Enterprise findById(@PathVariable Long id){
+    public Enterprise findById(@PathVariable int id){
         return enterpriseService.findById(id);
     }
 
@@ -29,12 +29,12 @@ public class EnterpriseRestController {
     }
 
     @PutMapping("/enterprise/{id}")
-    public Enterprise updateEnterprise(@PathVariable long id,@RequestBody Enterprise empresa){
+    public Enterprise updateEnterprise(@PathVariable int id,@RequestBody Enterprise empresa){
         return enterpriseService.updateEnterprise(id, empresa);
     }
 
     @DeleteMapping("/enterprise/{id}")
-     public void deleteEnterprise(@PathVariable long id){
+     public void deleteEnterprise(@PathVariable int id){
         enterpriseService.deleteEnterprise(id);
 
      }

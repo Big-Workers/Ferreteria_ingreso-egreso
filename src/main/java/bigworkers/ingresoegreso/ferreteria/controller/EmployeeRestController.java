@@ -16,7 +16,7 @@ public class EmployeeRestController {
 
 
     @GetMapping("/employee/{idUser}")
-    public Employee findById(@PathVariable long idUser){
+    public Employee findById(@PathVariable int idUser){
         return EmployeeService.findById(idUser) ;
     }
 
@@ -31,12 +31,12 @@ public class EmployeeRestController {
     }
 
     @PutMapping("/employee/{idUser}")
-    public Employee updateEmployee(@PathVariable long idUser, @RequestBody Employee employee){
+    public Employee updateEmployee(@PathVariable int idUser, @RequestBody Employee employee){
         return EmployeeService.updateEmployee(idUser, employee);
     }
 
     @DeleteMapping("/employee/{idUser}")
-    public void deleteEmployee(@PathVariable long idUser){
+    public void deleteEmployee(@PathVariable int idUser){
         EmployeeService.deleteEmployee(idUser);
     }
 

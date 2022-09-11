@@ -7,15 +7,15 @@ import java.util.List;
 
 public interface ITransactionService {
     //metodos abstractos
-    public Transaction findById(long id);
+    public Transaction findById(int id);
 
     public List<Transaction> findAll();
 
     public Transaction CreateTransaction (Transaction movimiento);
 
-    public Transaction updateTransaction(long id,Transaction movimiento);
+    public Transaction updateTransaction(int id,Transaction movimiento);
 
-    public void deleteTransaction(long id);
+    public void deleteTransaction(int id);
 
 
 }

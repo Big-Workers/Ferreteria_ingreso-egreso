@@ -17,12 +17,6 @@ public class Enterprise {
     private String address;
     @Column(name="phone", nullable = false)
     private String phone;
-    //@OneToMany
-    //@JoinColumn(name="id_transaction",nullable = false)
-    private Transaction transaction;
-    //@OneToMany
-    //@JoinColumn(name="id_employee",nullable = false)
-    private Employee employee;
     @Column(name="state")
     private boolean state;
 
@@ -66,22 +60,6 @@ public class Enterprise {
         this.phone = phone;
     }
 
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
     public boolean isState() {
         return state;
     }
@@ -98,8 +76,6 @@ public class Enterprise {
                 ", nit='" + nit + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", transaction=" + transaction +
-                ", employee=" + employee +
                 ", state=" + state +
                 '}';
     }
