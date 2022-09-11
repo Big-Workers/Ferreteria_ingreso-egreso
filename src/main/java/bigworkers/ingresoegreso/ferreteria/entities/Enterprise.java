@@ -17,11 +17,11 @@ public class Enterprise {
     private String address;
     @Column(name="phone", nullable = false)
     private String phone;
-    @OneToMany
-    @JoinColumn(name="id_transaction",nullable = false)
+    //@OneToMany
+    //@JoinColumn(name="id_transaction",nullable = false)
     private Transaction transaction;
-    @OneToMany
-    @JoinColumn(name="id_employee",nullable = false)
+    //@OneToMany
+    //@JoinColumn(name="id_employee",nullable = false)
     private Employee employee;
     @Column(name="state")
     private boolean state;

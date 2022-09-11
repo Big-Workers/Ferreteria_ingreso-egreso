@@ -9,8 +9,8 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_employee")
     private long idEmployee;
-    @ManyToOne
-    @JoinColumn(name="id_document_type", nullable = false)
+    //@ManyToOne
+    //@JoinColumn(name="id_document_type", nullable = false)
     private DocumentType documentType;
     @Column(name="document_number", nullable = false)
     private String documentNumber;
@@ -24,16 +24,16 @@ public class Employee {
     private String email;
     @Column(name="phone", nullable = false)
     private String phone;
-    @OneToOne
-    @JoinColumn(name="id_profile",nullable = false)
+    //@OneToOne
+    //@JoinColumn(name="id_profile",nullable = false)
     private Profile profile;
     @Column(name="name", nullable = false)
     private Role role;
-    @ManyToOne
-    @JoinColumn(name="id_enterprise",nullable = false)
+    //@ManyToOne
+    //@JoinColumn(name="id_enterprise",nullable = false)
     private Enterprise enterprise;
-    @OneToMany
-    @JoinColumn(name="id_transaction",nullable = false)
+    //@OneToMany
+    //@JoinColumn(name="id_transaction",nullable = false)
     private Transaction transaction;
     @Column(name="state", nullable = false)
     private boolean state;

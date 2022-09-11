@@ -15,11 +15,11 @@ public class Transaction {
     private String detail;
     @Column(name="amount", nullable = false)
     private float amount;
-    @ManyToOne
-    @JoinColumn(name="id_employee", nullable = false)
+    //@ManyToOne
+    //@JoinColumn(name="id_employee", nullable = false)
     private Employee employee;
-    @ManyToOne
-    @JoinColumn(name="id_enterprise", nullable = false)
+    //@ManyToOne
+    //@JoinColumn(name="id_enterprise", nullable = false)
     private Enterprise enterprise;
     @Column(name="state", nullable = false)
     private boolean state;
