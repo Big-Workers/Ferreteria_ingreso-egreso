@@ -10,6 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ferreteria" target="11" />
       <module name="ferreteriaThymeleaf" target="11" />
     </bytecodeTargetLevel>
   </component>

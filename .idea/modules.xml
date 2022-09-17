@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Ferreteria_ingreso-egreso.iml" filepath="$PROJECT_DIR$/.idea/Ferreteria_ingreso-egreso.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ferreteriaThymeleaf/ferreteriaThymeleaf.iml" filepath="$PROJECT_DIR$/ferreteriaThymeleaf/ferreteriaThymeleaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ferreteria.iml" filepath="$PROJECT_DIR$/../ferreteria.iml" />
     </modules>
   </component>
 </project>
