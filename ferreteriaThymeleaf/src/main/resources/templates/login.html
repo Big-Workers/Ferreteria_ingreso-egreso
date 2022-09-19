@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#712cf9">
     <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
-<body>
-    <h1>Ingresar</h1>
+<body class="text-center">
+    <main class="form-signin w-100 m-auto">
+        <div class="container-sm">
+            <img class="mb-4" src="static.img/ferreteria-minera.png" alt width="72" height="57"/>
+            <h1 class="h3 mb-3 fw-normal">Por favor ingrese</h1>
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="correo@example.com">
+                <label for="floatingInput"> Email address </label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div>
+                <br>
+                <label>
+                    <input type="checkbox" value="remember-me">
+                    remember me
+                </label>
+            </div>
+            <br>
+            <button class="w-100 btn btn-lg btn-primary px-4 gap-3" type="submit" >Ingresar</button>
+            <br>
+            <p class="mt-5 mb-3 text-muted">© BigWorkers</p>
+
+        </div>
+
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
