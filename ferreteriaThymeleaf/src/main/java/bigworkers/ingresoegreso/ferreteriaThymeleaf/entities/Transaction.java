@@ -1,6 +1,7 @@
 package bigworkers.ingresoegreso.ferreteriaThymeleaf.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="transactions")
@@ -15,11 +16,18 @@ public class Transaction {
     private String detail;
     @Column(name="amount", nullable = false)
     private float amount;
-    @Column(name="state", nullable = false)
+    @Column(name="state")
     private boolean state;
     @OneToOne
-    @JoinColumn(name="id_employee")
+    @JoinColumn(name="id_employee", nullable = false)
     private Employee employee;
+    @OneToOne
+    @JoinColumn(name="id_enterprise", nullable = false)
+    private Enterprise enterprise;
+    @Column(name="created_at")
+    private Date createdAt;
+    @Column(name="updated_at")
+    private Date updatedAt;
 
     public long getIdTransaction() {
         return idTransaction;
@@ -69,6 +77,30 @@ public class Transaction {
         this.employee = employee;
     }
 
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updateAt) {
+        this.updatedAt = updateAt;
+    }
+
     @Override
     public String toString() {
         return "Transaction{" +
@@ -78,6 +110,9 @@ public class Transaction {
                 ", amount=" + amount +
                 ", state=" + state +
                 ", employee=" + employee +
+                ", enterprise=" + enterprise +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
                 '}';
     }
 }

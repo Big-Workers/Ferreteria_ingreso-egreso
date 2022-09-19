@@ -1,6 +1,7 @@
 package bigworkers.ingresoegreso.ferreteriaThymeleaf.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="profiles")
@@ -9,14 +10,18 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_profile")
     private long idProfile;
-    @Column(name="name", nullable = false)
-    private String name;
+    @Column(name="email", nullable = false)
+    private String email;
     @Column(name="password", nullable = false)
     private String password;
-    @Column(name="image", nullable = false)
-    private String image;
+    @Column(name="role", nullable = false)
+    private Role role;
     @Column(name="state")
     private boolean state;
+    @Column(name="created_at")
+    private Date createdAt;
+    @Column(name="updated_at")
+    private Date updatedAt;
 
     public long getIdProfile() {
         return idProfile;
@@ -26,12 +31,12 @@ public class Profile {
         this.idProfile = idProfile;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -42,12 +47,12 @@ public class Profile {
         this.password = password;
     }
 
-    public String getImage() {
-        return image;
+    public Role getRole() {
+        return role;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public boolean isState() {
@@ -58,14 +63,32 @@ public class Profile {
         this.state = state;
     }
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updateAt) {
+        this.updatedAt = updateAt;
+    }
+
     @Override
     public String toString() {
         return "Profile{" +
                 "idProfile=" + idProfile +
-                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", image='" + image + '\'' +
+                ", role=" + role +
                 ", state=" + state +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
                 '}';
     }
 }
