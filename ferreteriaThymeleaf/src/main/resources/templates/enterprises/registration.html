@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>New enterprise</title>
 </head>
 <body>
+    <h1>Enterprise data</h1>
+    <from th:action="@{/guardar}"method="post" th:object="${empresa}">
+        <label for ="nombre">Nombre </label>
+        <imput type ="text" name ="nombre" th:field="*{nombre}"/>
+        <br>
+        <label for ="enterprise">Enterprise </label>
+        <select>th:field="*{eterprise.idEnterprise}"/>
+            <option value ="0" selected>Seleccione Enterprise</option>
+            <option th:each ="enterprise:${enterprises}"
+                    th:value ="${enterprise.idEnterprise}">
+                    th:text="${enterprise.descripcion}">
+            </option>
+        </select>
+    </from>
 
 </body>
 </html>
