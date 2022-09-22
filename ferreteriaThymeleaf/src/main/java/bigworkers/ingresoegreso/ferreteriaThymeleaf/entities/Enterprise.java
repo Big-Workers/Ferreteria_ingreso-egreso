@@ -1,10 +1,12 @@
 package bigworkers.ingresoegreso.ferreteriaThymeleaf.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name="enterprises")
-public class Enterprise {
+public class Enterprise implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_enterprise")
@@ -19,6 +21,10 @@ public class Enterprise {
     private String phone;
     @Column(name="state")
     private boolean state;
+    @Column(name="created_at")
+    private Date createdAt;
+    @Column(name="updated_at")
+    private Date updatedAt;
 
     public long getIdEnterprise() {
         return idEnterprise;
@@ -68,6 +74,22 @@ public class Enterprise {
         this.state = state;
     }
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updateAt) {
+        this.updatedAt = updateAt;
+    }
+
     @Override
     public String toString() {
         return "Enterprise{" +
@@ -77,6 +99,8 @@ public class Enterprise {
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
                 ", state=" + state +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
                 '}';
     }
 }
