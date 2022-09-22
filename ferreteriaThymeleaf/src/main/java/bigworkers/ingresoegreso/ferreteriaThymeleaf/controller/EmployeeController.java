@@ -12,6 +12,6 @@ public class EmployeeController {
     @GetMapping("/employees")
     private String employee(){
         LOG.log(Level.INFO, "employees");
-        return "/employees/view";
+        return "/employees/registrationProfile";
     }
 }
