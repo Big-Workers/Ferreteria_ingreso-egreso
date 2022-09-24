@@ -13,8 +13,10 @@ public class IndexController {
 
     private final Logger LOG = Logger.getLogger(""+IndexController.class);
     @GetMapping("/")
-    private String index(){
+    private String index(Model model){
         LOG.log(Level.INFO, "index");
+        var mensaje = "Bienvenidos al su sistema de gestión";
+        model.addAttribute("mensaje", mensaje);
         return "index";
     }
 }
