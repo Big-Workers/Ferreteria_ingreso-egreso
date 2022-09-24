@@ -2,21 +2,36 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Enterprises List</title>
+    <title>Enterprises</title>
 </head>
 <body>
 
-   <h1>Enterprises List</h1>
+   <h1>Empresas registradas</h1>
+   <br>
+   <br>
+   <a th:href="@{/menu}">Menú principal</a>
+   <br>
+   <br>
+   <a th:href="@{/enterprise/crear}">Nueva Empresa</a>
+   <br>
+   <br>
    <table border="1">
     <tr>
-
         <th>Nombre</th>
-        </tr>
-
-        <tr th:each="enterprise  : ${enterprises}">
-            <td th:text ="${enterprise.name}"></td>
-
-       </tr>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Nit</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+    </tr>
+    <tr th:each="enterprise  : ${enterprises}" th:if="${enterprise.state}">
+        <td th:text ="${enterprise.name}"></td>
+        <td th:text ="${enterprise.address}"></td>
+        <td th:text ="${enterprise.phone}"></td>
+        <td th:text ="${enterprise.nit}"></td>
+        <td><a th:href="@{/enterprise/editar/} + ${enterprise.idEnterprise}" th:text="Editar"></a></td>
+        <td><a th:href="@{/enterprise/eliminar/} + ${enterprise.idEnterprise}" th:text="Eliminar"></a></td>
+    </tr>
    </table>
 
 </body>

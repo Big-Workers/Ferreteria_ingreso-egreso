@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>New enterprise</title>
 </head>
 <body>
-    <h1>Enterprise data</h1>
-    <from th:action="@{/guardar}"method="post" th:object="${empresa}">
-        <label for ="nombre">Nombre </label>
-        <imput type ="text" name ="nombre" th:field="*{nombre}"/>
+    <h1>Datos de la Empresa</h1>
+    <br>
+    <br>
+    <a th:href="@{/enterprise/list}">Regresar</a>
+    <br>
+    <br>
+    <form id="customer-form" th:action="@{/enterprise/guardar}" method="post" th:object="${enterprise}">
+        <input type="hidden" name="idEnterprise" th:field="*{idEnterprise}">
+        <input type="hidden" name="createdAt" th:field="*{createdAt}">
+        <label for ="name">Nombre</label>
+        <input type ="text" name ="name" th:field="*{name}"/>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error nombre</span>
         <br>
-        <label for ="enterprise">Enterprise </label>
-        <select>th:field="*{eterprise.idEnterprise}"/>
-            <option value ="0" selected>Seleccione Enterprise</option>
-            <option th:each ="enterprise:${enterprises}"
-                    th:value ="${enterprise.idEnterprise}">
-                    th:text="${enterprise.descripcion}">
-            </option>
-        </select>
-    </from>
+        <label for ="address">Dirección</label>
+        <input type ="text" name ="address" th:field="*{address}"/>
+        <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Error dirección</span>
+        <br>
+        <label for ="phone">Teléfono</label>
+        <input type ="text" name ="phone" th:field="*{phone}"/>
+        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Error teléfono</span>
+        <br>
+        <label for ="nit">Nit</label>
+        <input type ="text" name ="nit" th:field="*{nit}"/>
+        <span th:if="${#fields.hasErrors('nit')}" th:errors="*{nit}">Error Nit</span>
+        <br>
+        <br>
+        <input type="submit" name="guardar" value="Guardar">
 
+    </form>
 </body>
 </html>

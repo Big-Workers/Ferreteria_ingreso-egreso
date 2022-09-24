@@ -16,8 +16,8 @@ public class TransactionService implements ITransactionService{
     private ITransactionRepository transactionRepository;
 
     @Override
-    public Transaction findById(int id) {
-        Optional<Transaction> movimiento = transactionRepository.findById((long)id);
+    public Transaction findById(long id) {
+        Optional<Transaction> movimiento = transactionRepository.findById(id);
         return movimiento.get();
     }
 
@@ -34,13 +34,13 @@ public class TransactionService implements ITransactionService{
     }
 
     @Override
-    public Transaction updateTransaction(int id, Transaction movimiento) {
+    public Transaction updateTransaction(long id, Transaction movimiento) {
         Transaction putMovimiento = transactionRepository.save(movimiento);
         return putMovimiento;
     }
 
     @Override
-    public void deleteTransaction(int id) {
-        transactionRepository.deleteById((long)id);
+    public void deleteTransaction(long id) {
+        transactionRepository.deleteById(id);
     }
 }
