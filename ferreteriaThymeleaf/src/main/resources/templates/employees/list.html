@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Employees</title>
+    <title>Empleados</title>
 </head>
 <body>
+
+<h1>Empleados registrados</h1>
+<br>
+<br>
+<a th:href="@{/}">Menú principal</a>
+<br>
+<br>
+<a th:href="@{/employee/create}">Nuevo empleado</a>
+<br>
+<br>
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Tipo de documento</th>
+        <th>No. de documento</th>
+        <th>Teléfono</th>
+        <th>Dirección</th>
+        <th>Empresa</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+    </tr>
+    <tr th:each="empleado  : ${empleados}" th:if="${empleado.state}">
+        <td th:text ="${empleado.name}"></td>
+        <td th:text ="${empleado.documentType.getDescription}"></td>
+        <td th:text ="${empleado.documentNumber}"></td>
+        <td th:text ="${empleado.phone}"></td>
+        <td th:text ="${empleado.address}"></td>
+        <td th:text ="${empleado.enterprise.getName}"></td>
+        <td><a th:href="@{/employee/edit/} + ${empleado.idEmployee}" th:text="Editar"></a></td>
+        <td><a th:href="@{/employee/delete/} + ${empleado.idEmployee}" th:text="Eliminar"></a></td>
+    </tr>
+</table>
 
 </body>
 </html>

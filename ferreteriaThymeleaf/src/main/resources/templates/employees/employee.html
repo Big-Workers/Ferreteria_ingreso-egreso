@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo empleado</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.0.0/css/all.min.css}">
+
+</head>
+<body>
+    <h1>Nuevo empleado</h1>
+    <br>
+    <form id="customer-form" th:action="@{/employee/save}" method="post" th:object="${employee}">
+        <input type="hidden" name="idEmployee" th:field="*{idEmployee}">
+        <input type="hidden" name="createdAt" th:field="*{createdAt}">
+        <label for="documentType" class="control-label col-md-12">Tipo de Documento</label>
+        <select th:field="*{documentType.idDocumentType}" name="documentType" class="custom-select" style="width:100%!important;height:100%!important;">
+            <option value="0" selected>Selecionar Tipo Documento</option>
+            <option th:each="documentType : ${documentTypes}"
+                    th:value="${documentType.idDocumentType}"
+                    th:text="${documentType.description}">
+            </option>
+        </select>
+        <br>
+        <label for="documentNumber">Numero de Documento</label>
+            <input type="text" name="documentNumber" th:field="*{documentNumber}">
+        <br>
+        <label for="name">Nombre</label>
+            <input type="text" name="name" th:field="*{name}">
+        <br>
+        <label for="surnames">Apellidos</label>
+            <input type="text" name="surnames" th:field="*{surnames}">
+        <br>
+        <label for="address">Dirección</label>
+            <input type="text" name="address" th:field="*{address}">
+        <br>
+        <label for="phone">Teléfono</label>
+            <input type="text" name="phone" th:field="*{phone}">
+        <br>
+        <label class="control-label col-md-2" for="enterprise">Empresa</label>
+        <select th:field="*{enterprise.idEnterprise}" name="enterprise">
+            <option value="0" selected>Seleccione empresa</option>
+            <option th:each="enterprise : ${enterprise}"
+                th:value="${enterprise.idEnterprise}"
+                th:text="${enterprise.name}">
+            </option>
+        </select>
+        <br>
+        <label class="control-label col-md-2" for="profile">Perfil</label>
+        <select th:field="*{profile.idProfile}" name="profile">
+            <option value="0" selected>Seleccione su correo</option>
+            <option th:each="profile : ${profile}"
+                    th:value="${profile.idProfile}"
+                    th:text="${profile.email}">
+            </option>
+        </select>
+        <br>
+        <div class="form-group">
+            <div class="col-md-2-offset-2" style="padding-left:250px">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+
+        </select>
+
+        </input>
+    </form>
+
+    <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/webjars/popper/js/2.9.3/umd/popper.min.js}"></script>
+</body>
+</html>
