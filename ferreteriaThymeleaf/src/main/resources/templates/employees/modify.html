@@ -99,7 +99,17 @@
                     <input type="text" phone="phone" th:field="*{phone}">
                 </div>
             </div>
-
+                <div style="padding-left:40px" class="form-group">
+                    <label for="enterprise" class="control-label col-md-2">Empresa</label>
+                    <br>
+                    <select th:field="*{enterprise.idEnterprise}" name="enterprise">
+                        <option value="0" selected>enterprise select</option>
+                        <option th:each="enterprise : ${enterprises}"
+                                th:value="${enterprise.idEnterprise}"
+                                th:text="${enterprise.description}">
+                        </option>
+                    </select>
+                </div>
             <br>
             <div style="padding-left:40px" class="form-group">
                 <label  class="control-label col-md-2" for="role">Rol</label>
