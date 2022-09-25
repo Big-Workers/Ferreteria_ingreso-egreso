@@ -10,14 +10,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DocumentTypeService implements IDocumentTypeService{
+public abstract class DocumentTypeService implements IDocumentTypeService{
 
     @Autowired
     private IDocumentTypeRepository documentTypeRepository;
 
+
     @Override
-    public DocumentType findById(int id) {
-        Optional<DocumentType> tipoDocumento = documentTypeRepository.findById((long)id);
+    public DocumentType findById(long idDocumentType) {
+        Optional<DocumentType> tipoDocumento = documentTypeRepository.findById((long)idDocumentType);
         return tipoDocumento.get();
     }
 
@@ -33,14 +34,15 @@ public class DocumentTypeService implements IDocumentTypeService{
         return newTipoDocumento;
     }
 
+
     @Override
-    public DocumentType updateDocumentType(int id, DocumentType tipoDocumento) {
+    public DocumentType updateDocumentType(long idDocumentType, DocumentType tipoDocumento) {
         DocumentType putTipoDocumento = documentTypeRepository.save(tipoDocumento);
         return putTipoDocumento;
     }
 
     @Override
-    public void deleteDocumentType(int id) {
-        documentTypeRepository.deleteById((long)id);
+    public void deleteDocumentType(long idDocumentType) {
+        documentTypeRepository.deleteById(idDocumentType);
     }
 }

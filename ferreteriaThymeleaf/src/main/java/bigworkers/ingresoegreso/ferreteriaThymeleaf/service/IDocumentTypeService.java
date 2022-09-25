@@ -7,20 +7,15 @@ import bigworkers.ingresoegreso.ferreteriaThymeleaf.entities.DocumentType;
 import java.util.List;
 
 public interface IDocumentTypeService {
+    DocumentType findById(long idDocumentType);
+    public List<DocumentType> findbyAll();
+
+    List<DocumentType> findAll();
+
+    public DocumentType createDocumentType(DocumentType documentType);
+
+    DocumentType updateDocumentType(long idDocumentType, DocumentType documentType);
 
 
-    public DocumentType findById(int id);
-
-
-    public List<DocumentType> findAll();
-
-
-    public DocumentType createDocumentType(DocumentType tipoDocumento);
-
-
-    public DocumentType updateDocumentType(int id, DocumentType tipoDocumento);
-
-
-    public void deleteDocumentType(int id);
-
+    void deleteDocumentType(long idDocumentType);
 }

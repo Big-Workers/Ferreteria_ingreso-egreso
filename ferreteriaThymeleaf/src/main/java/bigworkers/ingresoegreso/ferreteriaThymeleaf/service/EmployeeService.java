@@ -10,15 +10,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmployeeService implements IEmployeeService{
+public abstract class EmployeeService implements IEmployeeService{
 
     @Autowired
     private IEmployeeRepository employeeRepository;
     @Override
-    public Employee findById(int id) {
-        Optional<Employee> empleado = employeeRepository.findById((long)id);
+    public Employee findById(long idEmployee) {
+        Optional<Employee> empleado = employeeRepository.findById((long)idEmployee);
         return empleado.get();
     }
+
 
     @Override
     public List<Employee> findAll() {
@@ -33,14 +34,14 @@ public class EmployeeService implements IEmployeeService{
     }
 
     @Override
-    public Employee updateEmployee(int id, Employee employee) {
+    public Employee updateEmployee(long idEmployee, Employee employee) {
         Employee putEmployee = employeeRepository.save(employee);
         return putEmployee;
     }
 
     @Override
-    public void deleteEmployee(int id) {
-        employeeRepository.deleteById((long)id);
+    public void deleteEmployee(long idEmployee) {
+        employeeRepository.deleteById((long)idEmployee);
     }
 
 }
