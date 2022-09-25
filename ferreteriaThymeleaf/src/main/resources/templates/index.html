@@ -3,14 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}" >
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.0.0/css/all.min.css}" >
+    <link rel="stylesheet" th:href="@{/css/css-footer.css}">
 </head>
 <body>
-    <h1>Bienvenidos al Sistema de Gestión de Ingresos y Egresos</h1>
-    <p>Este sistema le permite gestionar empresas, empleados y movimientos de dinero. Ingrese al sistema o regístrese.</p>
-    <br>
-    <a th:href="@{/login}">INGRESAR</a>
-    <br>
-    <br>
-    <a th:href="@{/employees}">REGISTRARSE</a>
+    <header th:replace="layout/templates :: header"></header>
+    <header th:replace="layout/templates :: mainIndex"></header>
+    <div class="container m-3">
+        <p th:text="${mensaje}" ></p>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sistema de Gestión de Empresas</h5>
+                        <p class="card-text">Obtiene una lista con las empresas creadas
+                            en el sistema con opciones para editar, crear y eliminar.</p>
+                        <a th:href="@{/enterprise/list}" class="btn btn-primary">Ingresar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sistema de Gestión de Empleados</h5>
+                        <p class="card-text">Obtiene una lista con las empleados creados
+                            en el sistema con opciones para editar, crear y eliminar.</p>
+                        <a th:href="@{/employee/list}" class="btn btn-primary">Ingresar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sistema de Gestión de Movimientos</h5>
+                        <p class="card-text">Obtiene una lista con las movimientos registrados
+                            en el sistema con opciones para editar, crear y eliminar</p>
+                        <a th:href="@{/transaction/list}" class="btn btn-primary">Ingresar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer th:replace="layout/templates :: footer"></footer>
+    <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/webjars/popper/js/2.9.3/umd/popper.min.js}"></script>
 </body>
 </html>
