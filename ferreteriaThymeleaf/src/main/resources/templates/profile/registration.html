@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo empleado</title>
+</head>
+<body>
+<h1>Nuevo empleado</h1>
+<br>
+<br>
+<a th:href="@{/profile/list}">Regresar</a>
+<br>
+<br>
+<form id="customer-form" th:action="@{/profile/save}" method="post" th:object="${profile}">
+    <input type="hidden" name="idProfile" th:field="*{idProfile}">
+    <input type="hidden" name="createdAt" th:field="*{createdAt}">
+    <label for ="email">Correo</label>
+    <input type ="text" name ="email" th:field="*{email}"/>
+    <br>
+    <label for ="password">Contraseña</label>
+    <input type ="text" name ="password" th:field="*{password}"/>
+    <br>
+    <label class="col-sm-2 col-form-label" for="role">Rol</label>
+    <select th:field="*{role}" name="role" class="custom-select" style="width:100%!important;height:100%!important;">
+        <option value="" selected>Seleccion un rol</option>
+        <option th:each="role : ${T(bigworkers.ingresoegreso.ferreteriaThymeleaf.entities.Role). values()}"
+                th:value="${role}"
+                th:text="${role}">
+        </option>
+    </select>
+    <br>
+    <br>
+    <input type="submit" name="siguiente" value="Siguiente">
+
+</form>
+</body>
+</html>
