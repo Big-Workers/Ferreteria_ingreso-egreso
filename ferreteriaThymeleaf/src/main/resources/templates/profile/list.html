@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfiles</title>
+
+</head>
+<body>
+    <h1>Perfiles de usuario</h1>
+    <br>
+    <br>
+    <a th:href="@{/}">Menú principal</a>
+    <br>
+    <br>
+    <a th:href="@{/profile/create}">Nuevo empleado</a>
+    <br>
+    <br>
+    <table border="1">
+        <tr>
+            <th>Correo</th>
+            <th>Contraseña</th>
+            <th>Rol</th>
+            <th>Administrar</th>
+        </tr>
+        <tr th:each="profile  : ${profiles}" th:if="${profile.state}">
+            <td th:text ="${profile.email}"></td>
+            <td th:text ="${profile.password}"></td>
+            <td th:text ="${profile.role}"></td>
+            <td><a th:href="@{/employee/profile/edit/} + ${profile.idProfile}" th:text="Editar"></a>
+                <a th:href="@{/employee/profile/delete/} + ${profile.idProfile}" th:text="Eliminar"></a>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

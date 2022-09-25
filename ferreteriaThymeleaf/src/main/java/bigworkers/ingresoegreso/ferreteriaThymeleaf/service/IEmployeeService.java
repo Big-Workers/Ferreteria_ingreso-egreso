@@ -10,17 +10,11 @@ public interface IEmployeeService {
 
     Employee findById(long idEmployee);
 
-    Employee findById(int idEmployee);
+    List<Employee> findAll();
 
-     List<Employee> findAll();
+    Employee createEmployee( Employee employee);
 
-     Employee createEmployee( Employee employee);
-
-     Employee updateEmployee( int idEmployee, Employee employee);
-
-    Employee updateEmployee(long idEmployee, Employee employee);
-
-    void deleteEmployee(int idEmployee);
+    Employee updateEmployee( long idEmployee, Employee employee);
 
     void deleteEmployee(long idEmployee);
 }

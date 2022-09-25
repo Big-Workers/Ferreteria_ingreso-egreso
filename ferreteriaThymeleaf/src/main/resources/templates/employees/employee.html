@@ -3,136 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New employee</title>
+    <title>Nuevo empleado</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.0.0/css/all.min.css}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</nav>
-<div class="container">
-    <header>
-        <div class="container">
-            <h5>New employee</h5>
-        </div>
-    </header>
-    <form class="col-md-6"  style="background:#E6F8EC" th:action="@{/save}" method="post" th:object="${employees}">
-        <div class="row-md-4">
-            <div style="padding-left:40px">
-                <label for="documentType" class="control-label col-md-12">Tipo de Documento</label>
-                <select th:field ="*{documentType.idDocumentType}">
-                    <option value="0" selected>Selecionar Tipo Documento</option>
-                    <option th:each="documentType : ${typeDocuments}"
-                            th:value="${documentType.idDocumentType}"
-                            th:text="${documentType.description}">
-                    </option>
-                </select>
-            </div>
-        </div>
+    <h1>Nuevo empleado</h1>
+    <br>
+    <form id="customer-form" th:action="@{/employee/save}" method="post" th:object="${employee}">
+        <input type="hidden" name="idEmployee" th:field="*{idEmployee}">
+        <input type="hidden" name="createdAt" th:field="*{createdAt}">
+        <label for="documentType" class="control-label col-md-12">Tipo de Documento</label>
+        <select th:field="*{documentType.idDocumentType}" name="documentType" class="custom-select" style="width:100%!important;height:100%!important;">
+            <option value="0" selected>Selecionar Tipo Documento</option>
+            <option th:each="documentType : ${documentTypes}"
+                    th:value="${documentType.idDocumentType}"
+                    th:text="${documentType.description}">
+            </option>
+        </select>
         <br>
-        <div style="padding-left:40px" class="form-group">
-            <input type="hidden" name="idEmployee" th:field="*{idEmployee}">
-            <label for="documentNumber">Numero de Documento</label>
-            <div class="col-md-6">
-                <input type="text" name="documentNumber" th:field="*{documentNumber}">
-            </div>
-        </div>
+        <label for="documentNumber">Numero de Documento</label>
+            <input type="text" name="documentNumber" th:field="*{documentNumber}">
         <br>
-        <div style="padding-left:40px" class="form-group">
-            <label for="name">Nombre</label>
-            <div class="col-md-6">
-                <input type="text" name="name" th:field="*{name}">
-            </div>
-        </div>
+        <label for="name">Nombre</label>
+            <input type="text" name="name" th:field="*{name}">
         <br>
-        <div style="padding-left:40px" class="form-group">
-            <label for="surnames">Apellidos</label>
-            <div class="col-md-6">
-                <input type="text" name="surnames" th:field="*{surnames}">
-            </div>
-        </div>
+        <label for="surnames">Apellidos</label>
+            <input type="text" name="surnames" th:field="*{surnames}">
         <br>
-        <div style="padding-left:40px" class="form-group">
         <label for="address">Dirección</label>
-            <div class="col-md-6">
-                <input type="text" name="address" th:field="*{address}">
-            </div>
-        </div>
+            <input type="text" name="address" th:field="*{address}">
         <br>
-        <div style="padding-left:40px" class="form-group">
         <label for="phone">Teléfono</label>
-            <div class="col-md-6">
-                <input type="text" name="phone" th:field="*{phone}">
+            <input type="text" name="phone" th:field="*{phone}">
+        <br>
+        <label class="control-label col-md-2" for="enterprise">Empresa</label>
+        <select th:field="*{enterprise.idEnterprise}" name="enterprise">
+            <option value="0" selected>Seleccione empresa</option>
+            <option th:each="enterprise : ${enterprise}"
+                th:value="${enterprise.idEnterprise}"
+                th:text="${enterprise.name}">
+            </option>
+        </select>
+        <br>
+        <label class="control-label col-md-2" for="profile">Perfil</label>
+        <select th:field="*{profile.idProfile}" name="profile">
+            <option value="0" selected>Seleccione su correo</option>
+            <option th:each="profile : ${profile}"
+                    th:value="${profile.idProfile}"
+                    th:text="${profile.email}">
+            </option>
+        </select>
+        <br>
+        <div class="form-group">
+            <div class="col-md-2-offset-2" style="padding-left:250px">
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
         </div>
-        <br>
-        <div style="padding-left:40px" class="form-group">
-        <label class="control-label col-md-2" for="enterprise">Empresa</label>
-            <select th:field="*{enterprise.idEnterprise}" name="enterprise">
-                <option value="0" selected>enterprise select</option>
-                <option th:each="enterprise : ${enterprises}"
-                    th:value="${enterprise.idEnterprise}"
-                    th:text="${enterprise.description}">
-                </option>
-            </select>
-        </div>
-        <br>
-        <div style="padding-left:40px" class="form-group">
-            <label class="control-label col-md-2" for="role">Rol</label>
-                <select th:field="*{role}" name="role">
-                <option value="0" selected>Selectcionar Rol</option>
-                <option th:each="role : ${T(bigworkers.ingresoegreso.ferreteriaThymeleaf.entities.Role)values()}"
-                    th:value="${role}"
-                    th:text="${role}">
-                </option>
-        </div>
-                <br>
-                <div class="form-group">
-                    <div class="col-md-2-offset-2" style="padding-left:250px">
-                        <button type="button" class="btn btn-primary">Save</button>
-                    </div>
-                </div>
 
         </select>
 
         </input>
     </form>
-    <footer th:replace="layout/planting :: footer"></footer>
+
     <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.bundle.min.js}"></script>
     <script th:src="@{/webjars/popper/js/2.9.3/umd/popper.min.js}"></script>
 </body>
