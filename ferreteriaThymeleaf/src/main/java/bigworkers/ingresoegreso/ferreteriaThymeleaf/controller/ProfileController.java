@@ -5,8 +5,11 @@ import bigworkers.ingresoegreso.ferreteriaThymeleaf.service.IProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
@@ -43,13 +46,31 @@ public class ProfileController {
     }
 
     @PostMapping("/profile/save")
-    public String saveProfile(Profile profile, Model modelo) {
+    public String saveProfile(@Valid Profile profile, BindingResult error, Model modelo) {
         LOG.log(Level.INFO, "saveProfile");
+        for(ObjectError e : error.getAllErrors())
+            System.out.println(e.toString());
+        if(error.hasErrors()) {
+            return "profile/registration";
+        }
         profile.setState(true);
         profile.setUpdatedAt(date());
         profile = profileService.createProfile(profile);
-        modelo.addAttribute("profile",profile);
         return "redirect:/employee/create";
+    }
+
+    @PostMapping("/profile/save2")
+    public String saveProfile2(@Valid Profile profile, BindingResult error, Model modelo) {
+        LOG.log(Level.INFO, "saveProfile2");
+        for(ObjectError e : error.getAllErrors())
+            System.out.println(e.toString());
+        if(error.hasErrors()) {
+            return "profile/registration2";
+        }
+        profile.setState(true);
+        profile.setUpdatedAt(date());
+        profile = profileService.createProfile(profile);
+        return "redirect:/profile/list";
     }
 
     @RequestMapping(value = "/employee/profile/edit/{id}", method = RequestMethod.GET)
@@ -57,7 +78,7 @@ public class ProfileController {
         LOG.log(Level.INFO,"editProfile");
         Profile profile  = profileService.findById(id);
         modelo.addAttribute("profile", profile);
-        return "profile/registration";
+        return "profile/registration2";
     }
 
     @RequestMapping(value = "/employee/profile/delete/{id}", method = RequestMethod.GET)

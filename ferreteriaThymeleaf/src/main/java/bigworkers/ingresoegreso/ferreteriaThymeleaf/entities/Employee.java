@@ -11,25 +11,34 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_employee")
     private long idEmployee;
+
     @ManyToOne
     @JoinColumn(name="id_document_type", nullable = false)
     private DocumentType documentType;
+    @javax.validation.constraints.NotEmpty
     @Column(name="document_number", nullable = false)
     private String documentNumber;
+    @javax.validation.constraints.NotEmpty
     @Column(name="name", nullable = false)
     private String name;
+    @javax.validation.constraints.NotEmpty
     @Column(name="surnames", nullable = false)
     private String surnames;
+    @javax.validation.constraints.NotEmpty
     @Column(name="address", nullable = false)
     private String address;
+    @javax.validation.constraints.NotEmpty
     @Column(name="phone", nullable = false)
     private String phone;
+
     @OneToOne
     @JoinColumn(name="id_profile",nullable = false)
     private Profile profile;
+
     @ManyToOne
     @JoinColumn(name="id_enterprise",nullable = false)
     private Enterprise enterprise;
+
     @Column(name="state")
     private boolean state;
     @Column(name="created_at")

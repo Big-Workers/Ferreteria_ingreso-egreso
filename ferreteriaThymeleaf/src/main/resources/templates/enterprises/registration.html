@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>New enterprise</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}" >
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.0.0/css/all.min.css}" >
+    <link rel="stylesheet" th:href="@{/css/css-footer.css}">
 </head>
 <body>
+    <header th:replace="layout/templates :: header"></header>
+    <section th:replace="layout/templates :: mainIndex"></section>
     <h1>Datos de la Empresa</h1>
     <br>
     <br>

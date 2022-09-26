@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Perfiles</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}" >
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.0.0/css/all.min.css}" >
+    <link rel="stylesheet" th:href="@{/css/css-footer.css}">
 
 </head>
 <body>
+    <header th:replace="layout/templates :: header"></header>
+    <section th:replace="layout/templates :: mainIndex"></section>
     <h1>Perfiles de usuario</h1>
     <br>
     <br>
@@ -20,15 +25,15 @@
             <th>Correo</th>
             <th>Contraseña</th>
             <th>Rol</th>
-            <th>Administrar</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
         <tr th:each="profile  : ${profiles}" th:if="${profile.state}">
             <td th:text ="${profile.email}"></td>
             <td th:text ="${profile.password}"></td>
             <td th:text ="${profile.role}"></td>
-            <td><a th:href="@{/employee/profile/edit/} + ${profile.idProfile}" th:text="Editar"></a>
-                <a th:href="@{/employee/profile/delete/} + ${profile.idProfile}" th:text="Eliminar"></a>
-            </td>
+            <td><a th:href="@{/employee/profile/edit/} + ${profile.idProfile}" th:text="Editar"></a></td>
+            <td><a th:href="@{/employee/profile/delete/} + ${profile.idProfile}" th:text="Eliminar"></a></td>
         </tr>
     </table>
 
