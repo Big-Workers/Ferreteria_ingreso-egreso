@@ -1,7 +1,10 @@
 package bigworkers.ingresoegreso.ferreteriaThymeleaf.entities;
 
 import javax.persistence.*;
-import java.util.Date;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import java.sql.Timestamp;
+
 
 @Entity
 @Table(name="profiles")
@@ -10,18 +13,21 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_profile")
     private long idProfile;
+    @Pattern(regexp = "[a-zA-Z0-9!#$%&'*_+-]([\\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\\/()=?¿!.,:;]|\\d)+[a-zA-Z0-9][\\.][a-zA-Z]{2,4}([\\.][a-zA-Z]{2})?" ,message = "Debe ser un correo electrónico válido")
     @Column(name="email", nullable = false)
     private String email;
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])([A-Za-z\\d$@$!%*?&]|[^ ]){8,128}$" , message = "La contraseña debe contener minimo 8 caracteres, máximo 15, una letra mayúscula, una letra minuscula, un número, un caracter especial y sin espacios en blanco")
     @Column(name="password", nullable = false)
     private String password;
+    @NotNull
     @Column(name="role", nullable = false)
     private Role role;
     @Column(name="state")
     private boolean state;
     @Column(name="created_at")
-    private Date createdAt;
+    private Timestamp createdAt;
     @Column(name="updated_at")
-    private Date updatedAt;
+    private Timestamp updatedAt;
 
     public long getIdProfile() {
         return idProfile;
@@ -63,19 +69,19 @@ public class Profile {
         this.state = state;
     }
 
-    public Date getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public Timestamp getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updateAt) {
+    public void setUpdatedAt(Timestamp updateAt) {
         this.updatedAt = updateAt;
     }
 

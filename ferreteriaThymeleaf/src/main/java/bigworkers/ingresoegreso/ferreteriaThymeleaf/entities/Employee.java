@@ -1,7 +1,8 @@
 package bigworkers.ingresoegreso.ferreteriaThymeleaf.entities;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Timestamp;
+
 
 @Entity
 @Table(name="employees")
@@ -10,31 +11,40 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_employee")
     private long idEmployee;
+
     @ManyToOne
     @JoinColumn(name="id_document_type", nullable = false)
     private DocumentType documentType;
+    @javax.validation.constraints.NotEmpty
     @Column(name="document_number", nullable = false)
     private String documentNumber;
+    @javax.validation.constraints.NotEmpty
     @Column(name="name", nullable = false)
     private String name;
+    @javax.validation.constraints.NotEmpty
     @Column(name="surnames", nullable = false)
     private String surnames;
+    @javax.validation.constraints.NotEmpty
     @Column(name="address", nullable = false)
     private String address;
+    @javax.validation.constraints.NotEmpty
     @Column(name="phone", nullable = false)
     private String phone;
+
     @OneToOne
     @JoinColumn(name="id_profile",nullable = false)
     private Profile profile;
+
     @ManyToOne
     @JoinColumn(name="id_enterprise",nullable = false)
     private Enterprise enterprise;
+
     @Column(name="state")
     private boolean state;
     @Column(name="created_at")
-    private Date createdAt;
+    private Timestamp createdAt;
     @Column(name="updated_at")
-    private Date updatedAt;
+    private Timestamp updatedAt;
 
     public long getIdEmployee() {
         return idEmployee;
@@ -116,19 +126,19 @@ public class Employee {
         this.state = state;
     }
 
-    public Date getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public Timestamp getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updateAt) {
+    public void setUpdatedAt(Timestamp updateAt) {
         this.updatedAt = updateAt;
     }
 
