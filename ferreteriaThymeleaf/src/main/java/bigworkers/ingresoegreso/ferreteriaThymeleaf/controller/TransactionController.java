@@ -1,14 +1,16 @@
 package bigworkers.ingresoegreso.ferreteriaThymeleaf.controller;
 
 import bigworkers.ingresoegreso.ferreteriaThymeleaf.entities.Employee;
+import bigworkers.ingresoegreso.ferreteriaThymeleaf.entities.Enterprise;
 import bigworkers.ingresoegreso.ferreteriaThymeleaf.entities.Transaction;
+import bigworkers.ingresoegreso.ferreteriaThymeleaf.service.EnterpriseService;
 import bigworkers.ingresoegreso.ferreteriaThymeleaf.service.IEmployeeService;
+import bigworkers.ingresoegreso.ferreteriaThymeleaf.service.IEnterpriseService;
 import bigworkers.ingresoegreso.ferreteriaThymeleaf.service.ITransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -26,6 +28,9 @@ public class TransactionController {
     private ITransactionService TransactionService;
     @Autowired
     private IEmployeeService EmployeeService;
+
+    @Autowired
+    private IEnterpriseService EnterpriseService;
     private final Logger LOG = Logger.getLogger(""+TransactionController.class);
 
     public Timestamp date () {
@@ -49,8 +54,10 @@ public class TransactionController {
         transaction.setCreatedAt(date());
         modelo.addAttribute("transaction",transaction);
         //visualizar el empleado
-        List<Employee> empleado= EmployeeService.findAll();
-        modelo.addAttribute("empleado",empleado);
+        List<Employee> empleados= EmployeeService.findAll();
+        modelo.addAttribute("empleados",empleados);
+        List<Enterprise> empresas = EnterpriseService.findAll();
+        modelo.addAttribute("empresas", empresas);
         return "/transactions/registration";
 
     }
@@ -59,11 +66,16 @@ public class TransactionController {
     public String guardarTransaccion (Transaction transaccion){
         LOG.log(Level.INFO, "guardarTransaccion");
         transaccion.setState(true);
+        transaccion.setUpdatedAt(date());
         System.out.println(transaccion.toString());
         transaccion = TransactionService.CreateTransaction(transaccion);
         return "redirect:/transactions/list";
     }
-
+    @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.GET)
+    public String deleteTransaction(@PathVariable ("id") long id , Model modelo){
+    LOG.log(Level.INFO, "deleteTransaction");
+        return "redirect:/transactions/list";
+    }
 
 
 }

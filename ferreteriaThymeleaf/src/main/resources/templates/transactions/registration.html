@@ -12,7 +12,7 @@
     <br>
     <a th:href="@{/transactions/list}">Regresar</a>
     <br>
-    <form th:action="@{/guardar}" method="post" th:object="${transaccion}">
+    <form th:action="@{/guardar}" method="post" th:object="${transaction}">
         <input type="hidden" name="idTransaction" th:field="*{idTransaction}">
         <input type="hidden" name="createdAt" th:field="*{createdAt}">
         <br>
@@ -33,6 +33,18 @@
                      th:text="${empleado.name}+ ' ' + ${empleado.surnames}"
             > </option>
         </select>
+
+        <label for="enterprise">Empresa</label>
+        <select th:field="*{enterprise.idEnterprise}" name="enterprise">
+                <option value="0" selected>Seleccione Empresa</option>
+                <option  th:each="empresa : ${empresas}"
+                         th:value="${empresa.idEnterprise}"
+                         th:text="${empresa.name}"
+                > </option>
+
+
+        </select>
+
         <input type="submit" name="guardar" value="guardar">
 
     </form>
