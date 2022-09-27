@@ -1,7 +1,8 @@
 package bigworkers.ingresoegreso.ferreteriaThymeleaf.entities;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Timestamp;
+
 
 @Entity
 @Table(name="transactions")
@@ -25,9 +26,9 @@ public class Transaction {
     @JoinColumn(name="id_enterprise", nullable = false)
     private Enterprise enterprise;
     @Column(name="created_at")
-    private Date createdAt;
+    private Timestamp createdAt;
     @Column(name="updated_at")
-    private Date updatedAt;
+    private Timestamp updatedAt;
 
     public long getIdTransaction() {
         return idTransaction;
@@ -85,19 +86,19 @@ public class Transaction {
         this.enterprise = enterprise;
     }
 
-    public Date getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public Timestamp getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updateAt) {
+    public void setUpdatedAt(Timestamp updateAt) {
         this.updatedAt = updateAt;
     }
 
