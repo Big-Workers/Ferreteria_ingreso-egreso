@@ -12,11 +12,12 @@ import java.util.logging.Logger;
 public class IndexController {
 
     private final Logger LOG = Logger.getLogger(""+IndexController.class);
-    @GetMapping("/")
+    @GetMapping("/index")
     private String index(Model model){
         LOG.log(Level.INFO, "index");
-        var mensaje = "Bienvenidos al su sistema de gestión";
+        var mensaje = "Bienvenidos al sistema de gestión";
         model.addAttribute("mensaje", mensaje);
         return "index";
     }
 }
+

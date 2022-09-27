@@ -15,8 +15,8 @@ public class ProfileService implements IProfileService{
     @Autowired
     private IProfileRepository profileRepository;
     @Override
-    public Profile findById(int id) {
-        Optional<Profile> perfil = profileRepository.findById((long)id);
+    public Profile findById(long idProfile) {
+        Optional<Profile> perfil = profileRepository.findById((long)idProfile);
         return perfil.get();
     }
 
@@ -33,13 +33,13 @@ public class ProfileService implements IProfileService{
     }
 
     @Override
-    public Profile updateProfile(int id, Profile perfil) {
+    public Profile updateProfile(long idProfile, Profile perfil) {
         Profile putPerfil = profileRepository.save(perfil);
         return putPerfil;
     }
 
     @Override
-    public void deleteProfile(int id) {
-        profileRepository.deleteById((long)id);
+    public void deleteProfile(long idProfile) {
+        profileRepository.deleteById((long)idProfile);
     }
 }
