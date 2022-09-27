@@ -1,8 +1,6 @@
 package bigworkers.ingresoegreso.ferreteriaThymeleaf.controller;
 
-import bigworkers.ingresoegreso.ferreteriaThymeleaf.entities.Employee;
-import bigworkers.ingresoegreso.ferreteriaThymeleaf.entities.Enterprise;
-import bigworkers.ingresoegreso.ferreteriaThymeleaf.entities.Transaction;
+import bigworkers.ingresoegreso.ferreteriaThymeleaf.entities.*;
 import bigworkers.ingresoegreso.ferreteriaThymeleaf.service.EnterpriseService;
 import bigworkers.ingresoegreso.ferreteriaThymeleaf.service.IEmployeeService;
 import bigworkers.ingresoegreso.ferreteriaThymeleaf.service.IEnterpriseService;
@@ -37,7 +35,7 @@ public class TransactionController {
         Timestamp myDate = Timestamp.from(Instant.now());
         return myDate;
     }
-    @GetMapping("/transactions/list")
+    @GetMapping("/transaction/list")
     private String getListTransaction(Model model){
         LOG.log(Level.INFO, "getListTransaction");
         List<Transaction> transacciones = TransactionService.findAll();
@@ -46,7 +44,7 @@ public class TransactionController {
         model.addAttribute( "transacciones",transacciones);
         return "/transactions/list";
     }
-    @GetMapping("/transactions/registration")
+    @GetMapping("/transaction/create")
     private String createTransaction(Model modelo) {
         LOG.log(Level.INFO, "createTransaction");
         //visualizar la transaccion
@@ -62,19 +60,36 @@ public class TransactionController {
 
     }
 
-    @PostMapping("/guardar")
+    @PostMapping("/transaction/save")
     public String guardarTransaccion (Transaction transaccion){
         LOG.log(Level.INFO, "guardarTransaccion");
         transaccion.setState(true);
         transaccion.setUpdatedAt(date());
         System.out.println(transaccion.toString());
         transaccion = TransactionService.CreateTransaction(transaccion);
-        return "redirect:/transactions/list";
+        return "redirect:/transaction/list";
     }
-    @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/transaction/edit/{id}", method = RequestMethod.GET)
+    public  String editTransaction(@PathVariable("id")long id, Model model){
+        LOG.log(Level.INFO, "editTransaction");
+        Transaction transaction = TransactionService.findById(id);
+        model.addAttribute("transaction", transaction);
+        List<Enterprise> empresas = EnterpriseService.findAll();
+        model.addAttribute("empresas",empresas);
+        List<Employee> empleados = EmployeeService.findAll();
+        model.addAttribute("empleados",empleados);
+        return "/transactions/registration";
+    }
+    @RequestMapping(value = "/transaction/delete/{id}", method = RequestMethod.GET)
     public String deleteTransaction(@PathVariable ("id") long id , Model modelo){
-    LOG.log(Level.INFO, "deleteTransaction");
-        return "redirect:/transactions/list";
+         LOG.log(Level.INFO, "deleteTransaction");
+        //TransactionService.deleteTransaction(id);
+        Transaction transaction = TransactionService.findById(id);
+        transaction.setState(false);
+        transaction.setUpdatedAt(date());
+        transaction = TransactionService.updateTransaction(id,transaction);
+        return "redirect:/transaction/list";
     }
 
 
