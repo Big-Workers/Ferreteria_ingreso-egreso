@@ -16,8 +16,8 @@ public class DocumentTypeService implements IDocumentTypeService{
     private IDocumentTypeRepository documentTypeRepository;
 
     @Override
-    public DocumentType findById(int id) {
-        Optional<DocumentType> tipoDocumento = documentTypeRepository.findById((long)id);
+    public DocumentType findById(long idDocumentType) {
+        Optional<DocumentType> tipoDocumento = documentTypeRepository.findById((long)idDocumentType);
         return tipoDocumento.get();
     }
 
@@ -34,13 +34,13 @@ public class DocumentTypeService implements IDocumentTypeService{
     }
 
     @Override
-    public DocumentType updateDocumentType(int id, DocumentType tipoDocumento) {
+    public DocumentType updateDocumentType(long idDocumentType, DocumentType tipoDocumento) {
         DocumentType putTipoDocumento = documentTypeRepository.save(tipoDocumento);
         return putTipoDocumento;
     }
 
     @Override
-    public void deleteDocumentType(int id) {
-        documentTypeRepository.deleteById((long)id);
+    public void deleteDocumentType(long idDocumentType) {
+        documentTypeRepository.deleteById((long)idDocumentType);
     }
 }

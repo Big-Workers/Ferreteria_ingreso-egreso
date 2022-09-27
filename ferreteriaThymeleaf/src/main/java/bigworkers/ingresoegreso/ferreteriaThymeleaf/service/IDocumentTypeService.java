@@ -9,7 +9,7 @@ import java.util.List;
 public interface IDocumentTypeService {
 
 
-    public DocumentType findById(int id);
+    public DocumentType findById(long id);
 
 
     public List<DocumentType> findAll();
@@ -18,9 +18,9 @@ public interface IDocumentTypeService {
     public DocumentType createDocumentType(DocumentType tipoDocumento);
 
 
-    public DocumentType updateDocumentType(int id, DocumentType tipoDocumento);
+    public DocumentType updateDocumentType(long id, DocumentType tipoDocumento);
 
 
-    public void deleteDocumentType(int id);
+    public void deleteDocumentType(long id);
 
 }

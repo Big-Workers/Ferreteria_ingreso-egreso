@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface IProfileService {
 
-    public Profile findById(int id);
+    public Profile findById(long id);
 
     public List<Profile> findAll();
 
     public Profile createProfile(Profile perfil);
 
-    public Profile updateProfile(int id,Profile perfil);
+    public Profile updateProfile(long id,Profile perfil);
 
-    public void deleteProfile(int id);
+    public void deleteProfile(long id);
 }

@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="documents_types")
-public class DocumentType {
+public class     DocumentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_document_type")

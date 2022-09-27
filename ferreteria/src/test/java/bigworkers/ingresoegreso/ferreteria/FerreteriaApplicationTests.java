@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class FerreteriaApplicationTests {
 
 	@Test
-	void contextLoads() {
+	 void contextLoads() {
 	}
 
 }
